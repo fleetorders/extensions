@@ -1,18 +1,18 @@
 {
-  "packVersion": "3",
-  "etymdVersion": "0.3.1",
-  "approvedAt": "2026-08-07T11:58:05.686Z",
+  "packVersion": "7",
+  "etymdVersion": "0.9.1",
+  "approvedAt": "2026-08-12T20:39:54.909Z",
   "profile": "solo",
   "facts": {
-    "etymdVersion": "0.3.1",
-    "packVersion": "3",
-    "generatedAt": "2026-08-07T11:58:05.684Z",
+    "etymdVersion": "0.9.1",
+    "packVersion": "7",
+    "generatedAt": "2026-08-12T20:39:54.904Z",
     "root": ".",
     "name": "gephyra",
     "git": {
       "isRepo": true,
       "branch": "main",
-      "head": "a9181f2",
+      "head": "5fd41f2",
       "hooksPath": ".githooks",
       "husky": false,
       "recentAuthors": 1
@@ -36,8 +36,10 @@
       "build": "build"
     },
     "ci": {
-      "system": "none",
-      "files": []
+      "system": "github",
+      "files": [
+        ".github/workflows/ci.yml"
+      ]
     },
     "hooks": {
       "source": "githooks",
@@ -184,13 +186,16 @@
         "exists": false
       }
     ],
+    "shell": {
+      "scripts": 5
+    },
     "freshness": {
-      "repoLastCommit": "2026-08-07T11:08:32+02:00",
+      "repoLastCommit": "2026-08-08T20:07:17+02:00",
       "artifacts": [
         {
           "artifactId": "decisions",
           "path": "DECISIONS.md",
-          "lastCommit": "2026-08-06T06:48:12+02:00",
+          "lastCommit": "2026-08-07T16:03:44+02:00",
           "commitsSince": true
         }
       ],
@@ -203,16 +208,20 @@
           "files": 7
         },
         {
+          "name": ".githooks",
+          "files": 5
+        },
+        {
           "name": "media",
           "files": 4
         },
         {
-          "name": ".githooks",
+          "name": ".vscode",
           "files": 3
         },
         {
-          "name": ".vscode",
-          "files": 3
+          "name": ".github",
+          "files": 1
         },
         {
           "name": "bin",
