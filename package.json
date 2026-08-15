@@ -104,7 +104,8 @@
     "watch": "node esbuild.mjs --watch",
     "typecheck": "tsc --noEmit",
     "build:production": "node esbuild.mjs --production",
-    "vscode:prepublish": "npm run build:production && ./scripts/artifact-check.sh"
+    "vscode:prepublish": "npm run build:production && ./scripts/artifact-check.sh",
+    "doctor": "npx dokimd --manifest dokimd.json"
   },
   "devDependencies": {
     "@types/node": "20.17.17",
