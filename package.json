@@ -105,7 +105,7 @@
     "typecheck": "tsc --noEmit",
     "build:production": "node esbuild.mjs --production",
     "vscode:prepublish": "npm run build:production && ./scripts/artifact-check.sh",
-    "doctor": "npx dokimd --manifest dokimd.json",
+    "doctor": "npx peirad --manifest peirad.json",
     "changeset": "changeset",
     "version:packages": "changeset version"
   },
