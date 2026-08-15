@@ -105,9 +105,12 @@
     "typecheck": "tsc --noEmit",
     "build:production": "node esbuild.mjs --production",
     "vscode:prepublish": "npm run build:production && ./scripts/artifact-check.sh",
-    "doctor": "npx dokimd --manifest dokimd.json"
+    "doctor": "npx dokimd --manifest dokimd.json",
+    "changeset": "changeset",
+    "version:packages": "changeset version"
   },
   "devDependencies": {
+    "@changesets/cli": "^3.0.0",
     "@types/node": "20.17.17",
     "@types/vscode": "1.94.0",
     "esbuild": "0.24.2",
