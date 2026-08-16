@@ -45,8 +45,11 @@ jobs:
           ARTIFACT_CHECK_SKIP: "1"
         run: |
           npx --yes @vscode/vsce ls --no-dependencies | sort > /tmp/shipped
+          # CHANGELOG.md ships deliberately: vsce auto-includes it and the
+          # marketplace renders it on the extension's Changelog tab.
           sort > /tmp/expected <<'EOF'
           .artifact-check-allow
+          CHANGELOG.md
           LICENSE
           README.md
           bin/gephyra-wrapper
