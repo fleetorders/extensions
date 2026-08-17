@@ -4,8 +4,6 @@
   <img src="https://raw.githubusercontent.com/triartleet/extensions/main/media/extensions-logo.png" width="520" alt="extensions — a night sky over water; a pair of golden braces stands open, holding room for the family's members">
 </div>
 
-**Editor extensions — one monorepo, one naming standard.**
-
 Small tools that each do one thing in the editor; this repo is their shared
 home — one folder per extension, one look, one publishing standard. Everything
 is MIT and published to both the VS Code Marketplace and Open VSX.
