@@ -1,9 +1,7 @@
 # Claude Code Provider Switcher
 
-*Formerly gephyra — same extension, same history, a name that says what it does.*
-
 <div align="center">
-  <img src="https://raw.githubusercontent.com/triartleet/extensions/main/claude-code-provider-switcher/media/gephyra-logo.png" width="520" alt="Claude Provider Switcher — a bridge from your editor to whichever provider you pick">
+  <img src="https://raw.githubusercontent.com/triartleet/extensions/main/claude-code-provider-switcher/media/claude-code-provider-switcher-logo.png" width="520" alt="Claude Provider Switcher — a bridge from your editor to whichever provider you pick">
   <p>
     <a href="https://marketplace.visualstudio.com/items?itemName=alkisyuv.claude-code-provider-switcher"><img src="https://img.shields.io/visual-studio-marketplace/v/alkisyuv.claude-code-provider-switcher?label=VS%20Marketplace&color=0066b8" alt="VS Marketplace"></a>
     <a href="https://open-vsx.org/extension/alkisyuv/claude-code-provider-switcher"><img src="https://img.shields.io/open-vsx/v/alkisyuv.claude-code-provider-switcher?label=Open%20VSX&color=a60ee5" alt="Open VSX"></a>

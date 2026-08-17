@@ -37,13 +37,6 @@ All three are also published to [Open VSX](https://open-vsx.org/publisher/alkisy
   inside the extension's directory. Versions and changelog entries are
   managed with changesets.
 
-## History
-
-Claude Code Provider Switcher was previously published as `alkisyuv.gephyra`
-(that listing is deprecated and points here) and lived in its own repository;
-its full commit history was merged into this monorepo when the family
-consolidated.
-
 ## License
 
 [MIT](LICENSE)
