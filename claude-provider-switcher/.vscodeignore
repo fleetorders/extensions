@@ -1,0 +1,39 @@
+.vscode/**
+src/**
+media/gephyra-logo.png
+node_modules/**
+esbuild.mjs
+tsconfig.json
+pnpm-lock.yaml
+pnpm-workspace.yaml
+.gitignore
+
+# Nothing below is needed at runtime, and some of it describes the development
+# machine rather than the extension. vsce does NOT honour .gitignore, so a file
+# ignored by git still ships unless it is named here — .etymd/cache/ held an
+# absolute home path and shipped in 0.4.0 through 0.6.1 for exactly that reason.
+# Verify with `npx @vscode/vsce ls` before every publish.
+.etymd/**
+.githooks/**
+.github/**
+.markdownlint.jsonc
+AGENTS.md
+DECISIONS.md
+# Changesets config and the peirad manifest drive repo-side dev scripts
+# (`changeset`, `doctor`) — installed extensions never read either.
+.changeset/**
+peirad.json
+# The README links the roadmap by absolute GitHub URL (D-013), so the canonical copy is
+# always one click away and a shipped duplicate would only go stale inside installed
+# versions — a roadmap frozen at install time is worse than no roadmap.
+ROADMAP.md
+*.vsix
+
+# Belt and braces: `vscode:prepublish` builds without a source map, so this should
+# never match. If a stray map is ever present it must not ship — it is bigger than
+# the bundle it describes and embeds the full TypeScript source.
+**/*.map
+
+# SVG sources for the icon and banner — the rendered PNGs ship, the sources do not.
+media/*.svg
+media/gephyra-logo.png
