@@ -65,3 +65,17 @@ breaking every Repository link and badge URL in its listings.
 (READMEs of 487/38/23 lines, one icon among three, no two install sections
 alike); a fixed surface keeps new extensions obvious and listings
 trustworthy.
+
+### D-005 — Repository links point at the child folder, not the monorepo root
+
+**Scope:** repo · **Decided:** 2026-08-17
+
+Each extension's `repository.url` is its own folder's tree URL
+(`…/extensions/tree/main/<folder>`); the `directory` field is dropped.
+Corrects D-001's mechanism, not its intent: the marketplace renders
+`repository.url` verbatim in Project Details — `directory` never changed the
+displayed link (it only resolves relative README links, and this family's
+READMEs are absolute-only).
+
+**Why:** a reader clicking Repository on a listing should land on that
+extension's code, not the family index.
