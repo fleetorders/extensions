@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="1040" height="488" role="img" aria-label="extensions — a night sky over water; a pair of golden braces stands open, holding room for the family's members">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e2a3a"/>
+      <stop offset="1" stop-color="#121a24"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e8a913"/>
+      <stop offset="0.5" stop-color="#ffd970"/>
+      <stop offset="1" stop-color="#e8a913"/>
+    </linearGradient>
+    <clipPath id="frame"><rect width="640" height="300" rx="18"/></clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="640" height="300" fill="url(#sky)"/>
+    <g fill="#dfe8f2">
+      <circle cx="60" cy="42" r="2.2" opacity="0.6"/>
+      <circle cx="150" cy="26" r="1.6" opacity="0.4"/>
+      <circle cx="320" cy="34" r="1.8" opacity="0.5"/>
+      <circle cx="500" cy="28" r="1.6" opacity="0.45"/>
+      <circle cx="580" cy="56" r="2" opacity="0.5"/>
+    </g>
+    <g fill="none" stroke="url(#gold)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M296 74 C280 74 280 100 280 112 C280 132 274 138 258 150 C274 162 280 168 280 188 C280 200 280 226 296 226"/>
+      <path d="M344 74 C360 74 360 100 360 112 C360 132 366 138 382 150 C366 162 360 168 360 188 C360 200 360 226 344 226"/>
+    </g>
+    <rect y="196" width="640" height="104" fill="#1b3348"/>
+    <g fill="none" stroke="#33608a" stroke-width="3" stroke-linecap="round">
+      <path d="M-10 224 q20 -8 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0" opacity="0.7"/>
+      <path d="M-30 254 q20 -8 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0" opacity="0.45"/>
+    </g>
+  </g>
+</svg>

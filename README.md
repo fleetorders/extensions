@@ -1,6 +1,20 @@
 # extensions
 
-Alkis Yuv's editor extensions — one monorepo, one naming standard.
+<div align="center">
+  <img src="https://raw.githubusercontent.com/triartleet/extensions/main/media/extensions-logo.png" width="520" alt="extensions — a night sky over water; a pair of golden braces stands open, holding room for the family's members">
+  <p>
+    <a href="https://marketplace.visualstudio.com/items?itemName=alkisyuv.claude-code-provider-switcher"><img src="https://img.shields.io/visual-studio-marketplace/v/alkisyuv.claude-code-provider-switcher?label=Provider%20Switcher&color=0066b8" alt="Provider Switcher version"></a>
+    <a href="https://marketplace.visualstudio.com/items?itemName=alkisyuv.explorer-follows-terminal"><img src="https://img.shields.io/visual-studio-marketplace/v/alkisyuv.explorer-follows-terminal?label=Explorer%20Follows&color=0066b8" alt="Explorer Follows Terminal version"></a>
+    <a href="https://marketplace.visualstudio.com/items?itemName=alkisyuv.markdown-preview-style"><img src="https://img.shields.io/visual-studio-marketplace/v/alkisyuv.markdown-preview-style?label=Markdown%20Style&color=0066b8" alt="Markdown Preview Style version"></a>
+    <a href="https://github.com/triartleet/extensions/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="MIT license"></a>
+  </p>
+</div>
+
+**Alkis Yuv's editor extensions — one monorepo, one naming standard.**
+
+Small tools that each do one thing in the editor; this repo is their shared
+home — one folder per extension, one look, one publishing standard. Everything
+is MIT and published to both the VS Code Marketplace and Open VSX.
 
 | Extension | What it does | Install |
 | --- | --- | --- |
@@ -16,15 +30,16 @@ All three are also published to [Open VSX](https://open-vsx.org/publisher/alkisy
   kebab-case IDs match the display names. Codenames are reserved for
   standalone products, not shelf tools.
 - **One folder per extension** at the repo root, each with its own
-  `package.json`, README, and `repository.directory` pointing here, so
-  marketplace listings link into the right folder.
+  `package.json` and README, its `repository.url` pointing at the folder's
+  tree path, and the family surface (D-004): shared README skeleton,
+  `media/icon.png` with SVG source, `LICENSE`, `CHANGELOG.md`.
 - **Publishing** is per folder: `npx @vscode/vsce package/publish` from
   inside the extension's directory. Versions and changelog entries are
   managed with changesets.
 
 ## History
 
-Claude Provider Switcher was previously published as `alkisyuv.gephyra`
+Claude Code Provider Switcher was previously published as `alkisyuv.gephyra`
 (that listing is deprecated and points here) and lived in its own repository;
 its full commit history was merged into this monorepo when the family
 consolidated.
