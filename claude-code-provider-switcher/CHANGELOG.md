@@ -1,4 +1,4 @@
-# gephyra
+# Claude Code Provider Switcher
 
 ## 0.7.0
 

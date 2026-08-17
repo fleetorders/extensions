@@ -43,7 +43,7 @@ the standing pattern (D-001).
 ## Layout
 
 - `claude-code-provider-switcher/` — provider switching for the Claude Code
-  extension (formerly gephyra; history preserved).
+  extension.
 - `explorer-follows-terminal/` — Explorer follows the focused terminal's cwd.
 - `markdown-preview-style/` — global markdown preview stylesheet.
 - `.changeset/` — version and changelog management, one changeset per
