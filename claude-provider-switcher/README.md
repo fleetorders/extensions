@@ -27,7 +27,7 @@ Your status bar afterwards — one meter per subscription (C = Claude, G = GLM, 
 
 ## Your first switch
 
-1. **Install gephyra and accept the one-time pop-up question** it shows — that single yes is all the setup Claude Code itself needs. If you decline, gephyra does nothing at all. Details in [Install](#install).
+1. **Install the extension and accept the one-time pop-up question** it shows — that single yes is all the setup Claude Code itself needs. If you decline, the extension does nothing at all. Details in [Install](#install).
 2. **Add one provider.** [Provider setup](#provider-setup) walks you through it: you copy a short ready-made block into a small text file and paste in the sign-in details the provider gives you — the blocks for z.ai's GLM plan and Moonshot's Kimi plan are ready to copy. Each provider you add becomes one choice on the switch.
 3. **Click the `⇄` item in the status bar and start a new conversation.** That conversation is answered by the provider you just picked — in this project only.
 
@@ -43,47 +43,47 @@ From then on the meter at the bottom of the window shows how much of each subscr
 - **The busy gate** — while an answer is being written, switching waits; forcing it asks you first. → [Everyday use](#everyday-use)
 - **Conversations carry over** — continue any conversation on the other provider from Claude Code's own list of past conversations; nothing is copied. → [Everyday use](#everyday-use)
 - **Beam to phone** — beam is sending an ongoing conversation to your phone while the work keeps running on your computer; it needs the Claude app on your phone, signed in to your Claude account. → [Everyday use](#everyday-use)
-- **Fail-open safety** — gephyra failing can never take Claude Code down with it; the worst case is that the switch quietly does nothing. → [Under the hood](#under-the-hood)
+- **Fail-open safety** — the extension failing can never take Claude Code down with it; the worst case is that the switch quietly does nothing. → [Under the hood](#under-the-hood)
 
 ## How it works, in plain words
 
 ### Providers and profiles
 
-A provider is the company and subscription that answers your AI requests — Anthropic's Claude plan, z.ai's GLM plan, or Moonshot's Kimi plan. Each is its own paid plan with its own allowance. A profile is a small saved file with the connection details for one provider; each file becomes one choice on the switch. Anthropic needs no file — it is the built-in default that gephyra leaves untouched. GLM and Kimi have ready-made profiles in this guide and their allowance numbers show in the meter; any other Anthropic-compatible service (one that speaks the same request format Claude Code already uses) works too — it just shows no usage numbers. [Provider setup](#provider-setup) walks through creating the files.
+A provider is the company and subscription that answers your AI requests — Anthropic's Claude plan, z.ai's GLM plan, or Moonshot's Kimi plan. Each is its own paid plan with its own allowance. A profile is a small saved file with the connection details for one provider; each file becomes one choice on the switch. Anthropic needs no file — it is the built-in default that the extension leaves untouched. GLM and Kimi have ready-made profiles in this guide and their allowance numbers show in the meter; any other Anthropic-compatible service (one that speaks the same request format Claude Code already uses) works too — it just shows no usage numbers. [Provider setup](#provider-setup) walks through creating the files.
 
 ### When a switch takes effect
 
-A switch applies to the **next new conversation** you start in the project. Every conversation keeps the provider it started on, so nothing you already have open changes hands mid-thought, and no window reload is ever needed. While an answer is being written, the busy gate blocks switching — gephyra watches the conversation and holds the switch until the response finishes; forcing a switch anyway asks for your confirmation first.
+A switch applies to the **next new conversation** you start in the project. Every conversation keeps the provider it started on, so nothing you already have open changes hands mid-thought, and no window reload is ever needed. While an answer is being written, the busy gate blocks switching — the extension watches the conversation and holds the switch until the response finishes; forcing a switch anyway asks for your confirmation first.
 
 ### Open conversations move too
 
-When you switch, the open conversations gephyra is tracking close and reopen by themselves under the new provider — same transcript, one brief flicker, and the tab you were on gets focus back. A conversation that is mid-response is never interrupted; it keeps its old provider until you close it. Tabs gephyra could not identify (for example, ones open since before it started) simply move to the new provider once you close and resume them. To continue any conversation on the other provider yourself, resume it from Claude Code's own list of past conversations — the transcript carries over natively, and nothing is copied anywhere.
+When you switch, the open conversations the extension is tracking close and reopen by themselves under the new provider — same transcript, one brief flicker, and the tab you were on gets focus back. A conversation that is mid-response is never interrupted; it keeps its old provider until you close it. Tabs the extension could not identify (for example, ones open since before it started) simply move to the new provider once you close and resume them. To continue any conversation on the other provider yourself, resume it from Claude Code's own list of past conversations — the transcript carries over natively, and nothing is copied anywhere.
 
 ### Safe by design
 
-Gephyra is a **supervisor, not a fork** — it doesn't replace or modify the official Claude Code extension; that extension stays untouched and does all the real work. Gephyra only sets one official Claude Code setting and hands the program its connection details when it starts (documented environment variables — nothing hidden). By default it never intercepts your traffic (what you send and receive) and never touches your sign-in. There are two narrow opt-ins, both off by default: the [live Claude usage readout](#usage-readouts) (macOS only) and the [vision fallback proxy](#settings-reference) — a proxy here being a small relay on your own computer that passes your requests along. And gephyra fails open: if it is broken, misconfigured, or deleted, Claude Code keeps working as if gephyra were never installed. The full mechanics are in [Under the hood](#under-the-hood) and the [Disclaimer](#disclaimer).
+The extension is a **supervisor, not a fork** — it doesn't replace or modify the official Claude Code extension; that extension stays untouched and does all the real work. The extension only sets one official Claude Code setting and hands the program its connection details when it starts (documented environment variables — nothing hidden). By default it never intercepts your traffic (what you send and receive) and never touches your sign-in. There are two narrow opt-ins, both off by default: the [live Claude usage readout](#usage-readouts) (macOS only) and the [vision fallback proxy](#settings-reference) — a proxy here being a small relay on your own computer that passes your requests along. And the extension fails open: if it is broken, misconfigured, or deleted, Claude Code keeps working as if the extension were never installed. The full mechanics are in [Under the hood](#under-the-hood) and the [Disclaimer](#disclaimer).
 
 ## Install
 
 From a marketplace:
 
-- **Cursor / VSCodium** — search **"gephyra"** in the Extensions panel
-  (served from [Open VSX](https://open-vsx.org/extension/alkisyuv/gephyra)),
-  or `cursor --install-extension alkisyuv.gephyra`.
+- **Cursor / VSCodium** — search **"Claude Provider Switcher"** in the Extensions panel
+  (served from [Open VSX](https://open-vsx.org/extension/alkisyuv/claude-provider-switcher)),
+  or `cursor --install-extension alkisyuv.claude-provider-switcher`.
 - **VS Code** — install from the
-  [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=alkisyuv.gephyra),
-  or `code --install-extension alkisyuv.gephyra`.
+  [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=alkisyuv.claude-provider-switcher),
+  or `code --install-extension alkisyuv.claude-provider-switcher`.
 
 Or build from source:
 
 ```bash
-git clone https://github.com/triartleet/gephyra
-cd gephyra
+git clone https://github.com/triartleet/extensions
+cd claude-provider-switcher
 pnpm install
 pnpm build
 pnpm dlx @vscode/vsce package --no-dependencies
 # Cursor:
-cursor --install-extension gephyra-*.vsix   # or: code --install-extension …
+cursor --install-extension claude-provider-switcher-*.vsix   # or: code --install-extension …
 ```
 
 Requires the official **Claude Code** extension, macOS or Linux (the shim is
@@ -91,10 +91,10 @@ POSIX sh — Windows would need a different wrapper), and pnpm/Node 20.
 
 ## Setup
 
-1. **Configure the wrapper.** On first activation gephyra offers to point
+1. **Configure the wrapper.** On first activation the extension offers to point
    `claudeCode.claudeProcessWrapper` at its shim (a stable copy under
    `~/.config/gephyra/`, refreshed automatically on every activation).
-   Decline and gephyra stays inert. This is a **global** setting — every
+   Decline and the extension stays inert. This is a **global** setting — every
    window routes CLI spawns through the shim; on the Anthropic default the
    shim is a pure passthrough.
 2. **Add provider profiles.** Create `~/.config/gephyra/<name>.env`
@@ -102,17 +102,17 @@ POSIX sh — Windows would need a different wrapper), and pnpm/Node 20.
    and `kimi.env` blocks. Each file becomes a provider in the switch; no
    files → the switch reports there's nothing to switch to.
 3. **(Optional) Feed the Claude usage readout.** Claude Code only hands
-   `rate_limits` to statusline scripts, so gephyra reads a tee of that
+   `rate_limits` to statusline scripts, so the extension reads a tee of that
    payload. If you use a custom statusline, add this after it reads stdin
    (fail-safe — it can never break the status line itself):
 
    ```bash
    # after: input=$(cat)
    {
-     gephyra_dir="$HOME/.config/gephyra"
-     mkdir -p "$gephyra_dir" &&
-       printf '%s' "$input" >"$gephyra_dir/statusline-last.json.tmp" &&
-       mv -f "$gephyra_dir/statusline-last.json.tmp" "$gephyra_dir/statusline-last.json"
+     the extension_dir="$HOME/.config/gephyra"
+     mkdir -p "$the extension_dir" &&
+       printf '%s' "$input" >"$the extension_dir/statusline-last.json.tmp" &&
+       mv -f "$the extension_dir/statusline-last.json.tmp" "$the extension_dir/statusline-last.json"
    } 2>/dev/null || true
    ```
 
@@ -121,14 +121,14 @@ POSIX sh — Windows would need a different wrapper), and pnpm/Node 20.
 4. **(Optional) Live Claude usage in the panel.** The statusline feed only
    updates from terminal sessions, so panel-only use shows a staleness age
    instead of a frozen number. To poll usage directly, set
-   **`gephyra.anthropicLiveUsage: true`** (macOS only). Gephyra *reads* the
+   **`the extension.anthropicLiveUsage: true`** (macOS only). The extension *reads* the
    access token Claude Code keeps in the Keychain and queries the usage
    endpoint with it — read-only, and it never refreshes or writes that
    credential (refreshing rotates it and would log the CLI out). While the
    stored token is momentarily expired the readout falls back to the
    statusline feed until Claude Code renews it on its next turn. If the
-   session itself has lapsed, run **`Gephyra: Re-login Anthropic`**,
-   which runs `claude login` and stores a fresh token gephyra then reads.
+   session itself has lapsed, run **`The extension: Re-login Anthropic`**,
+   which runs `claude login` and stores a fresh token the extension then reads.
 5. **(Optional) Vision on GLM/Kimi via the proxy.** See
    [Vision on GLM/Kimi (opt-in proxy)](#vision-on-glmkimi-opt-in-proxy) —
    off by default, and only worth setting up if your provider's gateway
@@ -199,13 +199,13 @@ ANTHROPIC_API_KEY=sk-ant-your-payg-key
 # GEPHYRA_VISION_MODEL=claude-haiku-4-5-20251001
 ```
 
-then set **`gephyra.visionProxy: true`**. The vision model is the
-**`gephyra.visionModel`** setting (default `claude-sonnet-5`; set it to
-e.g. `claude-haiku-4-5-20251001` for cheaper vision). Gephyra starts a
+then set **`the extension.visionProxy: true`**. The vision model is the
+**`the extension.visionModel`** setting (default `claude-sonnet-5`; set it to
+e.g. `claude-haiku-4-5-20251001` for cheaper vision). The extension starts a
 localhost proxy: image turns route to Anthropic under your PAYG key (cents
 per image, billed to that key — your Claude subscription quota is
 untouched), while everything else stays on the provider. Off by default;
-off ⇒ nothing is proxied. The port is `gephyra.visionProxyPort`
+off ⇒ nothing is proxied. The port is `the extension.visionProxyPort`
 (default 4399, shared across windows). Logs route to
 `~/.config/gephyra/vision-proxy.log`.
 
@@ -245,10 +245,10 @@ transcript's per-turn `model` field is the ground truth.
 ### Beam a session to your phone (Remote Control)
 
 The extension UI can't enable Anthropic's Remote Control, but the session
-store is shared — so gephyra can hand your active session to a terminal that
+store is shared — so the extension can hand your active session to a terminal that
 has it. Before stepping away, run
-**`Gephyra: Beam session to phone (Remote Control)`** from the command
-palette. Gephyra resumes the project's active session in an integrated
+**`The extension: Beam session to phone (Remote Control)`** from the command
+palette. The extension resumes the project's active session in an integrated
 terminal as
 `claude --resume <id> --remote-control <name> --permission-mode bypassPermissions`
 — permission prompts bypassed so the away-run doesn't stall on them —
@@ -289,10 +289,10 @@ The Claude side defaults to the `rate_limits` payload Claude Code hands to
 statusline scripts, teed to a file (setup step 3) — no credential handling.
 That feed only updates from terminal sessions, so past 30 minutes the
 readout is marked "as of HH:MM" rather than showing a frozen number. With
-**`gephyra.anthropicLiveUsage`** on (opt-in; macOS only), the Claude side
+**`the extension.anthropicLiveUsage`** on (opt-in; macOS only), the Claude side
 instead reads Claude Code's stored access token from the Keychain and polls
 the usage endpoint directly, so the bar stays fresh in the panel too. The
-read is strictly read-only — gephyra never refreshes or rewrites that
+read is strictly read-only — the extension never refreshes or rewrites that
 credential, because refreshing rotates it and logs the CLI out. It falls
 back to the statusline feed on any miss, including the windows where the
 stored token is expired and the CLI hasn't yet renewed it.
@@ -301,27 +301,27 @@ stored token is expired and the CLI hasn't yet renewed it.
 
 | Setting | Default | What it does |
 | --- | --- | --- |
-| `gephyra.quietWindowMs` | `2500` | How long the transcript must be silent before a session counts as idle. |
-| `gephyra.switchToast` | `true` | Post-switch notification with the [New conversation] shortcut. Off: the status-bar label change is the only confirmation. Turn off once the handoff is muscle memory. |
-| `gephyra.restartCliOnSwitch` | `true` | After a switch, respawn CLI processes under the new provider — details below. |
-| `gephyra.anthropicLiveUsage` | `false` | Poll live Claude usage with the access token Claude Code stores in the Keychain (read-only — never refreshed) instead of the statusline feed. macOS only; falls back on any miss. |
-| `gephyra.visionProxy` | `false` | Opt-in localhost proxy routing image-bearing turns to Anthropic pay-as-you-go. Off ⇒ nothing is proxied. |
-| `gephyra.visionProxyPort` | `4399` | The vision proxy's localhost port (shared across windows). |
-| `gephyra.visionModel` | `"claude-sonnet-5"` | Claude model for the vision leg; overridable per provider via `GEPHYRA_VISION_MODEL` in the env file. |
+| `the extension.quietWindowMs` | `2500` | How long the transcript must be silent before a session counts as idle. |
+| `the extension.switchToast` | `true` | Post-switch notification with the [New conversation] shortcut. Off: the status-bar label change is the only confirmation. Turn off once the handoff is muscle memory. |
+| `the extension.restartCliOnSwitch` | `true` | After a switch, respawn CLI processes under the new provider — details below. |
+| `the extension.anthropicLiveUsage` | `false` | Poll live Claude usage with the access token Claude Code stores in the Keychain (read-only — never refreshed) instead of the statusline feed. macOS only; falls back on any miss. |
+| `the extension.visionProxy` | `false` | Opt-in localhost proxy routing image-bearing turns to Anthropic pay-as-you-go. Off ⇒ nothing is proxied. |
+| `the extension.visionProxyPort` | `4399` | The vision proxy's localhost port (shared across windows). |
+| `the extension.visionModel` | `"claude-sonnet-5"` | Claude model for the vision leg; overridable per provider via `GEPHYRA_VISION_MODEL` in the env file. |
 
-**`restartCliOnSwitch` in detail:** after a switch, gephyra ends this
+**`restartCliOnSwitch` in detail:** after a switch, the extension ends this
 window's idle Claude Code CLI process so the next conversation respawns
 under the new provider and `/model` shows its tier labels without a window
 reload (the Claude extension otherwise reuses one CLI process per window,
 freezing the old provider's env until reload). Processes backing a
 still-open conversation are ended only after that conversation closes, so
 no "process exited" error ever appears in the panel. Open conversations
-move with the switch: gephyra tracks which session each Claude tab hosts
+move with the switch: the extension tracks which session each Claude tab hosts
 and, on switch, closes and reopens every tracked tab on its own session —
 fresh spawns under the new provider, `/model` tiers correct immediately,
 each tab back in its original column with focus returning to the one you
 were on (tabs flicker once). A conversation that is mid-response is never
-interrupted — it keeps its old provider until you close it. Tabs gephyra
+interrupted — it keeps its old provider until you close it. Tabs the extension
 could not identify (open since before activation, ambiguous birth) keep
 the old behavior: they move to the new provider when closed and resumed.
 
@@ -329,20 +329,20 @@ Palette commands:
 
 | Command | Title |
 | --- | --- |
-| `gephyra.toggle` | Gephyra: Switch provider for this project (Claude ⇄ GLM ⇄ …) |
-| `gephyra.setupWrapper` | Gephyra: Configure Claude Code process wrapper |
-| `gephyra.beam` | Gephyra: Beam session to phone (Remote Control) |
-| `gephyra.loginAnthropic` | Gephyra: Re-login Anthropic (run claude login) |
+| `the extension.toggle` | The extension: Switch provider for this project (Claude ⇄ GLM ⇄ …) |
+| `the extension.setupWrapper` | The extension: Configure Claude Code process wrapper |
+| `the extension.beam` | The extension: Beam session to phone (Remote Control) |
+| `the extension.loginAnthropic` | The extension: Re-login Anthropic (run claude login) |
 
 ## Under the hood
 
 Validated live against Claude Code extension 2.1.220 (see
-[DECISIONS.md](https://github.com/triartleet/gephyra/blob/main/DECISIONS.md) for the decision record, including the approaches
+[DECISIONS.md](https://github.com/triartleet/extensions/blob/main/DECISIONS.md) for the decision record, including the approaches
 that were tried and reverted).
 
-- **Process-wrapper shim.** Gephyra points `claudeCode.claudeProcessWrapper`
+- **Process-wrapper shim.** The extension points `claudeCode.claudeProcessWrapper`
   (an official extension setting) at a small POSIX-sh shim. Every time the
-  extension launches a Claude CLI process, the shim reads gephyra's
+  extension launches a Claude CLI process, the shim reads the extension's
   per-project state and either execs the real binary clean (Anthropic) or
   with that provider's env profile injected. Each new conversation is its
   own CLI process, which is why the switch applies without a reload. On any
@@ -354,7 +354,7 @@ that were tried and reverted).
   clean passthrough; every other name means "inject `<name>.env`". The shim
   resolves the project from the spawned process's cwd, which is the
   workspace folder (VS Code's name for a project).
-- **Busy detection** — gephyra finds the project's live session via Claude
+- **Busy detection** — the extension finds the project's live session via Claude
   Code's session registry (`~/.claude/sessions/<pid>.json`), then classifies
   busy/idle from the transcript tail (including nested subagent activity).
   Long silent tool runs read as busy — the safe direction — and a 30-minute
@@ -364,7 +364,7 @@ that were tried and reverted).
   (the reference mapping) so `/model` shows real names instead of falling
   through to built-in Anthropic ids. Connection vars are never inherited, and
   a profile that sets its own tiers (like `kimi.env`) is untouched.
-- **Vision proxy (opt-in)** — when on, gephyra hosts a localhost HTTP server
+- **Vision proxy (opt-in)** — when on, the extension hosts a localhost HTTP server
   and the wrapper points the CLI at `http://127.0.0.1:<port>/<provider>`
   instead of the provider directly. The proxy inspects each `/v1/messages`
   request: an image-bearing turn — or a tool-loop a Claude image turn started
@@ -413,14 +413,14 @@ each fix is provable and regressions are caught before a human notices.
 
 - **A fresh GLM conversation may open on the small/fast model slot** (e.g.
   `glm-4.7`) depending on the panel's sticky model choice — check `/model`
-  after switching. Gephyra deliberately never touches model choice.
+  after switching. The extension deliberately never touches model choice.
 - **GLM image input was broken (z.ai-side) — repaired upstream 2026-07-31;
   opt-in vision proxy retained as a fallback.** In mid-2026 z.ai's gateway
   converted an attached image to a hosted URL and routed it through its own
   `analyze_image` tool, which returned one fixed wrong image regardless of
   what you sent (verified against Claude Code 2.1.220). z.ai fixed that tool on
   2026-07-31 (verified on two images), so GLM vision works natively again. The
-  opt-in **`gephyra.visionProxy`** (with an `anthropic-vision.env`, see
+  opt-in **`the extension.visionProxy`** (with an `anthropic-vision.env`, see
   [the vision proxy setup](#vision-on-glmkimi-opt-in-proxy)) is kept — off by default
   — for if z.ai regresses: image turns route to Anthropic pay-as-you-go while
   text and code stay on GLM, spending no subscription quota. With the proxy
@@ -452,7 +452,7 @@ each fix is provable and regressions are caught before a human notices.
   research preview tied to your Claude account login, and it is disabled by
   the CLI whenever `ANTHROPIC_BASE_URL` is set — so a beamed GLM or Kimi
   session runs as a normal local terminal session without phone reach.
-  Gephyra never flips the "Enable Remote Control for all sessions" setting —
+  The extension never flips the "Enable Remote Control for all sessions" setting —
   ambient reach for plain terminal sessions stays your own `/config` choice.
 - **Closed-source churn.** Anthropic can change the wrapper setting or spawn
   path in any release (the extension auto-updates). The shim fails open, so
@@ -463,18 +463,18 @@ each fix is provable and regressions are caught before a human notices.
 
 ## Roadmap
 
-What's next lives in [ROADMAP.md](https://github.com/triartleet/gephyra/blob/main/ROADMAP.md); the decision
-record, including the approaches ruled out, is [DECISIONS.md](https://github.com/triartleet/gephyra/blob/main/DECISIONS.md).
+What's next lives in [ROADMAP.md](https://github.com/triartleet/extensions/blob/main/ROADMAP.md); the decision
+record, including the approaches ruled out, is [DECISIONS.md](https://github.com/triartleet/extensions/blob/main/DECISIONS.md).
 
 
 ## Disclaimer
 
-Not affiliated with Anthropic, Z.ai, or Moonshot AI. By default gephyra never
+Not affiliated with Anthropic, Z.ai, or Moonshot AI. By default the extension never
 proxies or intercepts provider traffic and never touches OAuth flows — it only
 sets an official extension setting and injects documented environment
 variables, so each provider is consumed exactly as its subscription intends.
 The one scoped exception is the opt-in vision proxy
-(`gephyra.visionProxy`, off by default): when enabled it runs a localhost
+(`the extension.visionProxy`, off by default): when enabled it runs a localhost
 pass-through that forwards your own traffic verbatim to your configured
 provider, redirecting only image-bearing turns to Anthropic under a
 pay-as-you-go key you provide — it rewrites nothing but the model field on
