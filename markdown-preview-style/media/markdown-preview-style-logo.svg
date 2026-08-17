@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="1040" height="488" role="img" aria-label="Markdown Preview Style — a pendant lamp hangs over a wide open page, warm light on comfortable type">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e2a3a"/>
+      <stop offset="1" stop-color="#121a24"/>
+    </linearGradient>
+    <clipPath id="frame"><rect width="1040" height="488" rx="18"/></clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="1040" height="488" fill="url(#sky)"/>
+    <g fill="#dfe8f2">
+      <circle cx="70" cy="44" r="2.2" opacity="0.6"/>
+      <circle cx="560" cy="36" r="2" opacity="0.5"/>
+      <circle cx="610" cy="80" r="1.6" opacity="0.35"/>
+      <circle cx="44" cy="110" r="1.5" opacity="0.3"/>
+    </g>
+    <line x1="320" y1="0" x2="320" y2="58" stroke="#546a86" stroke-width="3.5"/>
+    <path d="M290 92 L350 92 L336 60 L304 60 Z" fill="#b6c6d8"/>
+    <circle cx="320" cy="97" r="6" fill="#ffd970"/>
+    <polygon points="320,99 210,208 430,208" fill="#ffd970" opacity="0.18"/>
+    <polygon points="320,99 264,208 376,208" fill="#ffd970" opacity="0.2"/>
+    <path d="M320 118 q-56 -18 -112 0 v76 q56 -18 112 0 z" fill="#eef3f8"/>
+    <path d="M320 118 q56 -18 112 0 v76 q-56 -18 -112 0 z" fill="#dfe8f2"/>
+    <line x1="320" y1="118" x2="320" y2="194" stroke="#b6c6d8" stroke-width="3"/>
+    <g fill="#e8a913" opacity="0.9">
+      <rect x="228" y="132" width="72" height="5.5" rx="2.5"/>
+      <rect x="228" y="148" width="56" height="5.5" rx="2.5"/>
+      <rect x="228" y="164" width="64" height="5.5" rx="2.5"/>
+      <rect x="340" y="132" width="72" height="5.5" rx="2.5"/>
+      <rect x="340" y="148" width="60" height="5.5" rx="2.5"/>
+      <rect x="340" y="164" width="48" height="5.5" rx="2.5"/>
+    </g>
+    <rect y="200" width="640" height="100" fill="#33445a"/>
+    <rect x="180" y="200" width="280" height="6" fill="#2b3a4d"/>
+  </g>
+</svg>
