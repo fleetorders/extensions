@@ -1,0 +1,9 @@
+{
+  "name": "extensions",
+  "private": true,
+  "workspaces": [
+    "claude-provider-switcher",
+    "explorer-follows-terminal",
+    "markdown-preview-style"
+  ]
+}

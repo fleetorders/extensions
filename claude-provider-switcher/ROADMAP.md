@@ -1,6 +1,6 @@
 # Roadmap
 
-What's next for Gephyra, in order of intent. This list is pruned, reordered and rewritten
+What's next for Claude Provider Switcher, in order of intent. This list is pruned, reordered and rewritten
 freely — the decisions behind deferrals, and the approaches already ruled out, live in
 [DECISIONS.md](DECISIONS.md).
 
