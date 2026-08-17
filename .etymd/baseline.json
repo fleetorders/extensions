@@ -1,26 +1,30 @@
 {
   "packVersion": "7",
   "etymdVersion": "0.10.0",
-  "approvedAt": "2026-08-17T19:31:42.829Z",
+  "approvedAt": "2026-08-17T19:46:07.001Z",
   "profile": "solo",
   "facts": {
     "etymdVersion": "0.10.0",
     "packVersion": "7",
-    "generatedAt": "2026-08-17T19:31:42.829Z",
+    "generatedAt": "2026-08-17T19:46:07.000Z",
     "root": ".",
     "name": "extensions",
     "git": {
       "isRepo": true,
       "branch": "main",
-      "head": "0ee76f6",
+      "head": "77f77de",
       "hooksPath": ".githooks",
       "husky": false,
       "recentAuthors": 1
     },
-    "packageManager": "unknown",
+    "packageManager": "npm",
     "workspace": {
-      "kind": "none",
-      "packageGlobs": []
+      "kind": "npm",
+      "packageGlobs": [
+        "claude-code-provider-switcher",
+        "explorer-follows-terminal",
+        "markdown-preview-style"
+      ]
     },
     "packages": [],
     "frameworks": [],
@@ -40,7 +44,7 @@
       "lintStaged": false
     },
     "publishable": false,
-    "publishRoute": "none",
+    "publishRoute": "npm",
     "artifacts": [
       {
         "id": "agents",
@@ -177,15 +181,15 @@
       }
     ],
     "shell": {
-      "scripts": 5
+      "scripts": 8
     },
     "freshness": {
-      "repoLastCommit": "2026-08-17T21:31:10+02:00",
+      "repoLastCommit": "2026-08-17T21:45:53+02:00",
       "artifacts": [
         {
           "artifactId": "decisions",
           "path": "DECISIONS.md",
-          "lastCommit": "2026-08-17T21:29:49+02:00",
+          "lastCommit": "2026-08-17T21:45:35+02:00",
           "commitsSince": true
         }
       ],
@@ -194,7 +198,7 @@
     "tree": {
       "dirs": [
         {
-          "name": "claude-provider-switcher",
+          "name": "claude-code-provider-switcher",
           "files": 25
         },
         {
@@ -202,16 +206,16 @@
           "files": 5
         },
         {
+          "name": "markdown-preview-style",
+          "files": 4
+        },
+        {
           "name": ".githooks",
           "files": 3
         },
         {
-          "name": "markdown-preview-style",
-          "files": 3
-        },
-        {
           "name": ".changeset",
-          "files": 2
+          "files": 1
         }
       ],
       "truncated": false
