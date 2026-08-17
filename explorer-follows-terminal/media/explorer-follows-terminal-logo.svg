@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="1040" height="488" role="img" aria-label="Explorer Follows Terminal — a night tree; the branch carrying the terminal lantern bears the one golden folder">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e2a3a"/>
+      <stop offset="1" stop-color="#121a24"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e8a913"/>
+      <stop offset="0.5" stop-color="#ffd970"/>
+      <stop offset="1" stop-color="#e8a913"/>
+    </linearGradient>
+    <clipPath id="frame"><rect width="640" height="300" rx="18"/></clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="640" height="300" fill="url(#sky)"/>
+    <g fill="#dfe8f2">
+      <circle cx="60" cy="40" r="2.2" opacity="0.6"/>
+      <circle cx="300" cy="24" r="1.8" opacity="0.45"/>
+      <circle cx="580" cy="36" r="2" opacity="0.5"/>
+      <circle cx="440" cy="52" r="1.5" opacity="0.3"/>
+    </g>
+    <path d="M-6 262 Q320 236 646 262 L646 300 L-6 300 Z" fill="#33445a"/>
+    <path d="M308 258 C303 210 305 164 313 122 L329 122 C337 164 339 210 334 258 Z" fill="#2b3a4d" stroke="#546a86" stroke-width="3"/>
+    <g fill="none" stroke="#93a8c0" stroke-linecap="round">
+      <path d="M316 148 C260 122 180 108 104 106" stroke-width="12"/>
+      <path d="M318 138 C314 106 310 76 306 48" stroke-width="10"/>
+      <path d="M328 152 C392 128 464 112 538 106" stroke-width="12"/>
+    </g>
+    <circle cx="104" cy="106" r="14" fill="#546a86"/>
+    <circle cx="306" cy="48" r="12" fill="#546a86"/>
+    <circle cx="540" cy="106" r="17" fill="url(#gold)"/>
+    <line x1="540" y1="124" x2="540" y2="152" stroke="#546a86" stroke-width="3.5"/>
+    <rect x="514" y="152" width="52" height="34" rx="5" fill="#121a24" stroke="#546a86" stroke-width="3"/>
+    <polyline points="524,162 534,169 524,176" fill="none" stroke="#f0b81f" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="542" y="175" width="14" height="4" rx="2" fill="#f0b81f"/>
+  </g>
+</svg>

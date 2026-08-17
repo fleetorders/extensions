@@ -1,54 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="Explorer Follows Terminal — from the terminal's prompt, across the water, to the matching folder">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="Explorer Follows Terminal — a night tree; the branch carrying the terminal lantern bears the one golden folder">
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#1e2a3a"/>
       <stop offset="1" stop-color="#121a24"/>
     </linearGradient>
-    <linearGradient id="span" x1="0" y1="0" x2="1" y2="0">
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#e8a913"/>
       <stop offset="0.5" stop-color="#ffd970"/>
       <stop offset="1" stop-color="#e8a913"/>
     </linearGradient>
-    <clipPath id="round">
-      <circle cx="128" cy="128" r="128"/>
-    </clipPath>
+    <clipPath id="round"><circle cx="128" cy="128" r="128"/></clipPath>
   </defs>
-
   <g clip-path="url(#round)">
     <rect width="256" height="256" fill="url(#sky)"/>
-
-    <!-- water -->
-    <rect y="170" width="256" height="86" fill="#1b3348"/>
-    <g fill="none" stroke="#33608a" stroke-width="3" stroke-linecap="round">
-      <path d="M-6 196 q16 -7 32 0 t32 0 t32 0 t32 0 t32 0 t32 0 t32 0" opacity="0.7"/>
-      <path d="M-18 218 q16 -7 32 0 t32 0 t32 0 t32 0 t32 0 t32 0 t32 0" opacity="0.45"/>
-      <path d="M-6 240 q16 -7 32 0 t32 0 t32 0 t32 0 t32 0 t32 0 t32 0" opacity="0.25"/>
+    <g fill="#dfe8f2">
+      <circle cx="30" cy="30" r="2" opacity="0.6"/>
+      <circle cx="222" cy="24" r="1.8" opacity="0.5"/>
+      <circle cx="76" cy="14" r="1.5" opacity="0.4"/>
     </g>
-
-    <!-- shores -->
-    <path d="M-4 158 H44 v16 H-4 Z" fill="#33445a"/>
-    <path d="M212 158 H260 v16 H212 Z" fill="#33445a"/>
-
-    <!-- terminal on the near shore -->
-    <g transform="translate(26 104)">
-      <rect width="64" height="46" rx="6" fill="#2b3a4d" stroke="#546a86" stroke-width="2.5"/>
-      <polyline points="12,15 23,25 12,35" fill="none" stroke="#f0b81f" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <rect x="31" y="32" width="16" height="4.5" rx="2" fill="#f0b81f"/>
+    <path d="M6 226 Q128 202 250 226 L250 256 L6 256 Z" fill="#33445a"/>
+    <path d="M112 224 C109 186 111 152 117 118 L127 118 C133 152 135 186 132 224 Z" fill="#2b3a4d" stroke="#546a86" stroke-width="2.5"/>
+    <g fill="none" stroke="#93a8c0" stroke-linecap="round">
+      <path d="M122 128 C104 112 78 104 54 104" stroke-width="9"/>
+      <path d="M122 122 C120 96 118 76 116 54" stroke-width="8"/>
+      <path d="M126 132 C148 118 172 110 196 106" stroke-width="9"/>
     </g>
-
-    <!-- the golden deck both shores share -->
-    <rect x="18" y="150" width="220" height="13" rx="4.5" fill="url(#span)"/>
-
-    <!-- chevrons: the reveal, terminal -> folder -->
-    <g fill="none" stroke="#f0b81f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="102,138 116,151 102,164"/>
-      <polyline points="124,138 138,151 124,164"/>
-      <polyline points="146,138 160,151 146,164"/>
-    </g>
-
-    <!-- folder on the far shore -->
-    <g transform="translate(168 108)">
-      <path d="M0 12 h20 l8 8 h28 a7 7 0 0 1 7 7 v22 a7 7 0 0 1 -7 7 H7 a7 7 0 0 1 -7 -7 V19 a7 7 0 0 1 7 -7 z" fill="url(#span)" stroke="#c99713" stroke-width="2"/>
-    </g>
+    <circle cx="54" cy="104" r="10" fill="#546a86"/>
+    <circle cx="116" cy="54" r="9" fill="#546a86"/>
+    <circle cx="198" cy="105" r="12" fill="url(#gold)"/>
+    <line x1="198" y1="118" x2="198" y2="140" stroke="#546a86" stroke-width="3"/>
+    <rect x="180" y="140" width="36" height="24" rx="4" fill="#121a24" stroke="#546a86" stroke-width="2.5"/>
+    <polyline points="187,147 194,152 187,157" fill="none" stroke="#f0b81f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="200" y="156" width="10" height="3" rx="1.5" fill="#f0b81f"/>
   </g>
 </svg>
