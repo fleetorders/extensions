@@ -79,3 +79,14 @@ READMEs are absolute-only).
 
 **Why:** a reader clicking Repository on a listing should land on that
 extension's code, not the family index.
+
+### D-006 — Root README: banner without badges
+
+**Scope:** repo · **Decided:** 2026-08-17
+
+The family README's header block carries the banner alone — no badge row.
+Each extension's own README carries its registry badges.
+
+**Why:** one badge per member makes the row crowd and truncate as the family
+grows; the index needs to stay legible at any size. (A sanctioned deviation
+from the README standard's rule 1, recorded per its "not a gate" clause.)

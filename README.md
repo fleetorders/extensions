@@ -2,12 +2,6 @@
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/triartleet/extensions/main/media/extensions-logo.png" width="520" alt="extensions — a night sky over water; a pair of golden braces stands open, holding room for the family's members">
-  <p>
-    <a href="https://marketplace.visualstudio.com/items?itemName=alkisyuv.claude-code-provider-switcher"><img src="https://img.shields.io/visual-studio-marketplace/v/alkisyuv.claude-code-provider-switcher?label=Provider%20Switcher&color=0066b8" alt="Provider Switcher version"></a>
-    <a href="https://marketplace.visualstudio.com/items?itemName=alkisyuv.explorer-follows-terminal"><img src="https://img.shields.io/visual-studio-marketplace/v/alkisyuv.explorer-follows-terminal?label=Explorer%20Follows&color=0066b8" alt="Explorer Follows Terminal version"></a>
-    <a href="https://marketplace.visualstudio.com/items?itemName=alkisyuv.markdown-preview-style"><img src="https://img.shields.io/visual-studio-marketplace/v/alkisyuv.markdown-preview-style?label=Markdown%20Style&color=0066b8" alt="Markdown Preview Style version"></a>
-    <a href="https://github.com/triartleet/extensions/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="MIT license"></a>
-  </p>
 </div>
 
 **Alkis Yuv's editor extensions — one monorepo, one naming standard.**
