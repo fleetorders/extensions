@@ -21,8 +21,8 @@
       <circle cx="580" cy="56" r="2" opacity="0.5"/>
     </g>
     <g fill="none" stroke="url(#gold)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M296 74 C280 74 280 100 280 112 C280 132 274 138 258 150 C274 162 280 168 280 188 C280 200 280 226 296 226"/>
-      <path d="M344 74 C360 74 360 100 360 112 C360 132 366 138 382 150 C366 162 360 168 360 188 C360 200 360 226 344 226"/>
+      <path d="M292 64 C279 64 279 87 279 98 C279 115 273 121 261 130 C273 139 279 145 279 162 C279 173 279 182 292 182"/>
+      <path d="M348 64 C361 64 361 87 361 98 C361 115 367 121 379 130 C367 139 361 145 361 162 C361 173 361 182 348 182"/>
     </g>
     <rect y="196" width="640" height="104" fill="#1b3348"/>
     <g fill="none" stroke="#33608a" stroke-width="3" stroke-linecap="round">
