@@ -1,0 +1,10 @@
+{
+  "name": "gephyra ↔ claude-code",
+  "_note": "gephyra's deeper risk is the model-slot remap and ANTHROPIC_* env contract; a dedicated 'model-slot-resolves' / 'env-contract' probe is a future agent-doctor probe type. These probes cover the harness it drives.",
+  "harness": "claude",
+  "versionArgs": ["--version"],
+  "probes": [
+    { "type": "command-exists", "critical": true },
+    { "type": "version" }
+  ]
+}
