@@ -9,8 +9,7 @@
     "vscode": "^1.88.0"
   },
   "categories": [
-    "Other",
-    "Workspaces"
+    "Other"
   ],
   "keywords": [
     "multi-root",
