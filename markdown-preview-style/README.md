@@ -1,7 +1,21 @@
 # Markdown Preview Style
 
+> A comfortable reading stylesheet for the markdown preview, in every workspace.
+
 A markdown-preview reading stylesheet, contributed as a global extension so
 every workspace gets it — no per-repo settings, no per-repo CSS files.
+
+## Install
+
+- **VS Code** — install from the
+  [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=alkisyuv.markdown-preview-style),
+  or `code --install-extension alkisyuv.markdown-preview-style`
+- **Cursor / VSCodium** — served from
+  [Open VSX](https://open-vsx.org/extension/alkisyuv/markdown-preview-style),
+  or `cursor --install-extension alkisyuv.markdown-preview-style`
+
+Nothing to enable: the stylesheet applies the moment the extension is
+installed.
 
 ## Why an extension and not the `markdown.styles` setting
 

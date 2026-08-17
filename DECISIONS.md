@@ -47,3 +47,21 @@ listing is deprecated with a successor pointer to this id.
 **Why:** the collision name is unavailable outright; the "code" infix keeps the
 locked intent, rides the strongest search pair, and was verified free before
 committing.
+
+### D-004 — Family layout standard: README skeleton, generated icons, per-folder metadata
+
+**Scope:** repo · **Decided:** 2026-08-17
+
+Every extension folder carries the same surface: a README in the family
+skeleton (one-line summary, Install covering the VS Marketplace and Open
+VSX/Cursor, usage/settings, license), a generated `media/icon.png`
+marketplace icon with its SVG source beside it, `LICENSE`, `CHANGELOG.md`,
+and `repository.directory` equal to the actual folder name. The pass that
+introduced this also fixed the first violation: the renamed extension's
+`repository.directory` still pointed at the pre-collision folder name,
+breaking every Repository link and badge URL in its listings.
+
+**Why:** the family grew by consolidation, not birth, so the folders drifted
+(READMEs of 487/38/23 lines, one icon among three, no two install sections
+alike); a fixed surface keeps new extensions obvious and listings
+trustworthy.

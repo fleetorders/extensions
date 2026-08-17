@@ -24,7 +24,11 @@ the standing pattern (D-001).
   shelf tools.
 - **One extension per folder**, self-contained: own `package.json`, README,
   `repository: { url: this repo, directory: <folder> }`. No cross-folder
-  imports unless a decision record says otherwise.
+  imports unless a decision record says otherwise. The folder carries the
+  family surface (D-004): README in the shared skeleton (one-liner, Install
+  for both marketplaces, license), generated `media/icon.png` + its SVG
+  source, `LICENSE`, `CHANGELOG.md`, and `repository.directory` equal to the
+  actual folder name.
 - **Reuse-first, minimal diffs.** Check existing code before adding helpers.
 - **Never commit or push unasked.** The maintainer drives releases; commits
   are Conventional (feat / fix / chore / docs / ci) and stay unattributed.
