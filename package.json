@@ -5,5 +5,8 @@
     "claude-provider-switcher",
     "explorer-follows-terminal",
     "markdown-preview-style"
-  ]
+  ],
+  "dependencies": {
+    "@changesets/cli": "^3.0.0"
+  }
 }

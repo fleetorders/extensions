@@ -2,7 +2,7 @@
   "name": "claude-provider-switcher",
   "displayName": "Claude Provider Switcher",
   "description": "Provider switch for the Claude Code extension: Anthropic ⇄ any Anthropic-compatible endpoint (z.ai GLM, Kimi, …) via named env profiles, per project, busy-gated — plus one-command beam of the active session to your phone via Remote Control",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "publisher": "alkisyuv",
   "license": "MIT",
   "packageManager": "pnpm@11.5.2",
@@ -44,23 +44,23 @@
     "commands": [
       {
         "command": "gephyra.toggle",
-        "title": "Gephyra: Switch provider for this project (Claude ⇄ GLM ⇄ …)"
+        "title": "Claude Provider Switcher: Switch provider for this project (Claude ⇄ GLM ⇄ …)"
       },
       {
         "command": "gephyra.setupWrapper",
-        "title": "Gephyra: Configure Claude Code process wrapper"
+        "title": "Claude Provider Switcher: Configure Claude Code process wrapper"
       },
       {
         "command": "gephyra.beam",
-        "title": "Gephyra: Beam session to phone (Remote Control)"
+        "title": "Claude Provider Switcher: Beam session to phone (Remote Control)"
       },
       {
         "command": "gephyra.loginAnthropic",
-        "title": "Gephyra: Re-login Anthropic (run claude login)"
+        "title": "Claude Provider Switcher: Re-login Anthropic (run claude login)"
       }
     ],
     "configuration": {
-      "title": "Gephyra",
+      "title": "Claude Provider Switcher",
       "properties": {
         "gephyra.quietWindowMs": {
           "type": "number",
