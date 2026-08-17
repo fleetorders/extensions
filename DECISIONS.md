@@ -33,3 +33,17 @@ by the rename; a later release may migrate them deliberately.
 **Why:** marketplaces are search shelves — a codename is a brand asset that a
 utility listing never earns; every extension starts discoverable by name
 instead. Renaming now, while install counts are small, is the cheap moment.
+
+### D-003 — Final id: claude-code-provider-switcher (name collision)
+
+**Scope:** repo · **Decided:** 2026-08-17
+
+The rename target from D-002, `claude-provider-switcher`, is held by another
+marketplace publisher — extension names are globally unique across publishers.
+The final id is `alkisyuv.claude-code-provider-switcher`, display name
+"Claude Code Provider Switcher", verified free by gallery query. The gephyra
+listing is deprecated with a successor pointer to this id.
+
+**Why:** the collision name is unavailable outright; the "code" infix keeps the
+locked intent, rides the strongest search pair, and was verified free before
+committing.

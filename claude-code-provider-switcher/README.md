@@ -1,12 +1,12 @@
-# Claude Provider Switcher
+# Claude Code Provider Switcher
 
 *Formerly gephyra — same extension, same history, a name that says what it does.*
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/triartleet/extensions/main/claude-provider-switcher/media/gephyra-logo.png" width="520" alt="Claude Provider Switcher — a bridge from your editor to whichever provider you pick">
   <p>
-    <a href="https://marketplace.visualstudio.com/items?itemName=alkisyuv.claude-provider-switcher"><img src="https://img.shields.io/visual-studio-marketplace/v/alkisyuv.claude-provider-switcher?label=VS%20Marketplace&color=0066b8" alt="VS Marketplace"></a>
-    <a href="https://open-vsx.org/extension/alkisyuv/claude-provider-switcher"><img src="https://img.shields.io/open-vsx/v/alkisyuv.claude-provider-switcher?label=Open%20VSX&color=a60ee5" alt="Open VSX"></a>
+    <a href="https://marketplace.visualstudio.com/items?itemName=alkisyuv.claude-code-provider-switcher"><img src="https://img.shields.io/visual-studio-marketplace/v/alkisyuv.claude-code-provider-switcher?label=VS%20Marketplace&color=0066b8" alt="VS Marketplace"></a>
+    <a href="https://open-vsx.org/extension/alkisyuv/claude-code-provider-switcher"><img src="https://img.shields.io/open-vsx/v/alkisyuv.claude-code-provider-switcher?label=Open%20VSX&color=a60ee5" alt="Open VSX"></a>
     <a href="https://github.com/triartleet/extensions/blob/main/claude-provider-switcher/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="MIT license"></a>
   </p>
 </div>
@@ -15,7 +15,7 @@
 
 One AI subscription answers every project you work on, so they all drain the same allowance — and when you hit the limit, everything stops, whether a project needed the expensive plan or not.
 
-Claude Provider Switcher adds a switch to the Claude Code extension in Cursor and VS Code so each project can pick its own provider — the company and subscription that answers your AI requests. The other providers are separate subscriptions you sign up and pay for yourself; it connects them, it doesn't include them. Installing it changes nothing until you accept the one pop-up question it shows and opt a project in. And if it is ever broken, misconfigured, or deleted, Claude Code keeps working as if it were never installed.
+Claude Code Provider Switcher adds a switch to the Claude Code extension in Cursor and VS Code so each project can pick its own provider — the company and subscription that answers your AI requests. The other providers are separate subscriptions you sign up and pay for yourself; it connects them, it doesn't include them. Installing it changes nothing until you accept the one pop-up question it shows and opt a project in. And if it is ever broken, misconfigured, or deleted, Claude Code keeps working as if it were never installed.
 
 Works on macOS and Linux (not Windows), alongside the official Claude Code extension.
 
@@ -67,12 +67,12 @@ The extension is a **supervisor, not a fork** — it doesn't replace or modify t
 
 From a marketplace:
 
-- **Cursor / VSCodium** — search **"Claude Provider Switcher"** in the Extensions panel
-  (served from [Open VSX](https://open-vsx.org/extension/alkisyuv/claude-provider-switcher)),
-  or `cursor --install-extension alkisyuv.claude-provider-switcher`.
+- **Cursor / VSCodium** — search **"Claude Code Provider Switcher"** in the Extensions panel
+  (served from [Open VSX](https://open-vsx.org/extension/alkisyuv/claude-code-provider-switcher)),
+  or `cursor --install-extension alkisyuv.claude-code-provider-switcher`.
 - **VS Code** — install from the
-  [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=alkisyuv.claude-provider-switcher),
-  or `code --install-extension alkisyuv.claude-provider-switcher`.
+  [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=alkisyuv.claude-code-provider-switcher),
+  or `code --install-extension alkisyuv.claude-code-provider-switcher`.
 
 Or build from source:
 
@@ -83,7 +83,7 @@ pnpm install
 pnpm build
 pnpm dlx @vscode/vsce package --no-dependencies
 # Cursor:
-cursor --install-extension claude-provider-switcher-*.vsix   # or: code --install-extension …
+cursor --install-extension claude-code-provider-switcher-*.vsix   # or: code --install-extension …
 ```
 
 Requires the official **Claude Code** extension, macOS or Linux (the shim is
