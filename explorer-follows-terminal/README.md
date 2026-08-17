@@ -1,5 +1,7 @@
 # Explorer Follows Terminal
 
+> The file tree follows the terminal you're in.
+
 In a **multi-root workspace**, the Explorer sidebar reveals the workspace
 folder of the **focused terminal's working directory**. Click a terminal,
 get that project's file tree — no manual navigation, no second click.
@@ -8,6 +10,15 @@ Built for terminal-centric workflows: multi-project windows, monitor panes,
 agent cockpits. If you keep one workspace window open with many project
 folders and many terminals, this keeps the file list where your attention
 already is.
+
+## Install
+
+- **VS Code** — install from the
+  [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=alkisyuv.explorer-follows-terminal),
+  or `code --install-extension alkisyuv.explorer-follows-terminal`
+- **Cursor / VSCodium** — served from
+  [Open VSX](https://open-vsx.org/extension/alkisyuv/explorer-follows-terminal),
+  or `cursor --install-extension alkisyuv.explorer-follows-terminal`
 
 ## How it works
 

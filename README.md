@@ -8,6 +8,8 @@ Alkis Yuv's editor extensions — one monorepo, one naming standard.
 | [Explorer Follows Terminal](explorer-follows-terminal/) | In multi-root workspaces, the Explorer reveals the workspace folder of the focused terminal | `ext install alkisyuv.explorer-follows-terminal` |
 | [Markdown Preview Style](markdown-preview-style/) | A markdown-preview reading stylesheet, contributed globally so every workspace gets it | `ext install alkisyuv.markdown-preview-style` |
 
+All three are also published to [Open VSX](https://open-vsx.org/publisher/alkisyuv), so Cursor and VSCodium install the same ids.
+
 ## Conventions
 
 - **Descriptive names.** Extension names say what the extension does;

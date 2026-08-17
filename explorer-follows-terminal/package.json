@@ -42,5 +42,6 @@
     "type": "git",
     "url": "https://github.com/triartleet/extensions.git",
     "directory": "explorer-follows-terminal"
-  }
+  },
+  "icon": "media/icon.png"
 }
