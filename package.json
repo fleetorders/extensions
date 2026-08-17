@@ -2,7 +2,7 @@
   "name": "extensions",
   "private": true,
   "workspaces": [
-    "claude-provider-switcher",
+    "claude-code-provider-switcher",
     "explorer-follows-terminal",
     "markdown-preview-style"
   ],
