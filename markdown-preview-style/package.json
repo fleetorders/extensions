@@ -1,0 +1,29 @@
+{
+  "name": "markdown-preview-style",
+  "displayName": "Markdown Preview Style",
+  "description": "A markdown-preview reading stylesheet, contributed globally so every workspace gets it with no per-repo settings.",
+  "version": "1.0.1",
+  "publisher": "alkisyuv",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "markdown",
+    "preview",
+    "css"
+  ],
+  "contributes": {
+    "markdown.previewStyles": [
+      "./preview.css"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/triartleet/extensions.git",
+    "directory": "markdown-preview-style"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "name": "explorer-follows-terminal",
+  "displayName": "Explorer Follows Terminal",
+  "description": "In multi-root workspaces, the Explorer reveals the workspace folder of the focused terminal's working directory.",
+  "version": "0.1.0",
+  "publisher": "alkisyuv",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.88.0"
+  },
+  "categories": [
+    "Other",
+    "Workspaces"
+  ],
+  "keywords": [
+    "multi-root",
+    "terminal",
+    "explorer",
+    "workspace"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Explorer Follows Terminal",
+      "properties": {
+        "explorerFollowsTerminal.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Reveal the focused terminal's workspace folder in the Explorer."
+        },
+        "explorerFollowsTerminal.focusView": {
+          "type": "boolean",
+          "default": false,
+          "description": "Also move keyboard focus to the Explorer view (by default the file tree is only revealed, not focused)."
+        }
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/triartleet/extensions.git",
+    "directory": "explorer-follows-terminal"
+  }
+}
