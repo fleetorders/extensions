@@ -21,13 +21,13 @@
       <circle cx="580" cy="56" r="2" opacity="0.5"/>
     </g>
     <g fill="none" stroke="url(#gold)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M292 64 C279 64 279 87 279 98 C279 115 273 121 261 130 C273 139 279 145 279 162 C279 173 279 182 292 182"/>
-      <path d="M348 64 C361 64 361 87 361 98 C361 115 367 121 379 130 C367 139 361 145 361 162 C361 173 361 182 348 182"/>
+      <path d="M292 91 C279 91 279 114 279 125 C279 142 273 148 261 157 C273 166 279 172 279 189 C279 200 279 209 292 209"/>
+      <path d="M348 91 C361 91 361 114 361 125 C361 142 367 148 379 157 C367 166 361 172 361 189 C361 200 361 209 348 209"/>
     </g>
-    <rect y="196" width="640" height="104" fill="#1b3348"/>
+    <rect y="230" width="640" height="70" fill="#1b3348"/>
     <g fill="none" stroke="#33608a" stroke-width="3" stroke-linecap="round">
-      <path d="M-10 224 q20 -8 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0" opacity="0.7"/>
-      <path d="M-30 254 q20 -8 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0" opacity="0.45"/>
+      <path d="M-10 252 q20 -8 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0" opacity="0.7"/>
+      <path d="M-30 276 q20 -8 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0" opacity="0.45"/>
     </g>
   </g>
 </svg>
