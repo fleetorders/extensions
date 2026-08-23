@@ -39,6 +39,11 @@ the standing pattern (D-001).
   sense, and be safe, read by a stranger?
 - **Publishing is owner-gated.** `vsce publish`/`deprecate` run only on the
   maintainer's explicit go; never publish as part of a code change.
+- **Every release ships to BOTH registries** — the VS Code Marketplace
+  (`vsce publish`) and Open VSX (`ovsx publish`, Cursor/VSCodium install
+  from there). A version published to one and not the other is an
+  unfinished release. READMEs are part of the release: a feature lands with
+  its README section in the same version. (Owner ruling 2026-08-23.)
 
 ## Layout
 
