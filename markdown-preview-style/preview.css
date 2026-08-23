@@ -64,6 +64,16 @@ li > p { margin: 0.3em 0; }
 
 ul, ol { padding-left: 1.5em; }
 
+/* ---- Display elements breathe: a block that is not prose (a quote, a code
+   block, a table, a figure, a collapsible) gets clear space above and below,
+   so the eye lands on it as its own thing rather than as the tail of the
+   paragraph before it. One value, shared. ---- */
+
+blockquote, pre, table, figure, details {
+  margin-top: 1.8em;
+  margin-bottom: 1.8em;
+}
+
 blockquote {
   margin-left: 0;
   padding: 0.2em 1.1em;
@@ -87,7 +97,6 @@ table {
   max-width: 100%;
   border-collapse: collapse;
   font-size: 0.92em;
-  margin: 1.2em 0;
 }
 
 th, td {
