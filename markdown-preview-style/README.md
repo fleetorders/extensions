@@ -22,6 +22,15 @@ Markdown Preview Style contributes the stylesheet as a global extension —
 every workspace gets it, no per-repo settings, no per-repo CSS files. Nothing
 to enable: it applies the moment the extension is installed.
 
+## Local override
+
+The bundled style is the opinion; your machine can have the last word. Point
+`markdownPreviewStyle.localOverride` at a CSS file (default
+`~/.config/markdown-preview-style/override.css`) and the extension layers it
+over the bundled stylesheet, syncing it in on activation and whenever the
+file changes (a window reload applies it). No file, no change: the extension
+behaves exactly as before. Set the setting to an empty string to disable.
+
 ## Install
 
 - **VS Code** — install from the
