@@ -18,12 +18,27 @@
   ],
   "contributes": {
     "markdown.previewStyles": [
-      "./preview.css"
-    ]
+      "./preview.css",
+      "./local-override.css"
+    ],
+    "configuration": {
+      "title": "Markdown Preview Style",
+      "properties": {
+        "markdownPreviewStyle.localOverride": {
+          "type": "string",
+          "default": "~/.config/markdown-preview-style/override.css",
+          "description": "Machine-local CSS file layered over the bundled stylesheet. Synced into the extension on activation and on change (a window reload applies it). Empty string disables the override."
+        }
+      }
+    }
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/triartleet/extensions/tree/main/markdown-preview-style"
   },
-  "icon": "media/icon.png"
+  "icon": "media/icon.png",
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
 }
