@@ -9,11 +9,14 @@
   "dependencies": {
     "@changesets/cli": "^3.0.0"
   },
-  "description": "Alkis Yuv's editor extensions \u2014 one monorepo, one naming standard",
+  "description": "Alkis Yuv's editor extensions — one monorepo, one naming standard",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/triartleet/extensions.git"
   },
   "license": "MIT",
-  "author": "Alkis Yuv"
+  "author": "Alkis Yuv",
+  "devDependencies": {
+    "@vscode/vsce": "^3.9.2"
+  }
 }
