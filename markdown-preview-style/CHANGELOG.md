@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.1
+
+### Patch Changes
+
+- cf0fbc3: README documents the local override (`markdownPreviewStyle.localOverride`), which v1.1.0 shipped undocumented.
+
 ## 1.1.0
 
 ### Minor Changes
