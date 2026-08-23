@@ -2,7 +2,7 @@
   "name": "markdown-preview-style",
   "displayName": "Markdown Preview Style",
   "description": "A markdown-preview reading stylesheet, contributed globally so every workspace gets it with no per-repo settings.",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "publisher": "alkisyuv",
   "license": "MIT",
   "engines": {

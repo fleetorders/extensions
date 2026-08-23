@@ -2,7 +2,7 @@
   "name": "explorer-follows-terminal",
   "displayName": "Explorer Follows Terminal",
   "description": "In multi-root workspaces, the Explorer reveals the workspace folder of the focused terminal's working directory.",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "publisher": "alkisyuv",
   "license": "MIT",
   "engines": {
