@@ -1,5 +1,5 @@
 /* VS Code markdown-preview reading stylesheet.
-   Wired via "markdown.styles" in the AL profile settings.
+   Wired via "markdown.styles" in the user settings.
    Theme-aware: VS Code stamps body.vscode-dark / .vscode-light / .vscode-high-contrast. */
 
 body {
