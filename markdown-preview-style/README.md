@@ -1,11 +1,11 @@
 # Markdown Preview Style
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/triartleet/extensions/main/markdown-preview-style/media/markdown-preview-style-logo.png" width="520" alt="Markdown Preview Style — a pendant lamp hangs over a wide open page, warm light on comfortable type">
+  <img src="https://raw.githubusercontent.com/fleetorders/extensions/main/markdown-preview-style/media/markdown-preview-style-logo.png" width="520" alt="Markdown Preview Style — a pendant lamp hangs over a wide open page, warm light on comfortable type">
   <p>
     <a href="https://marketplace.visualstudio.com/items?itemName=alkisyuv.markdown-preview-style"><img src="https://img.shields.io/visual-studio-marketplace/v/alkisyuv.markdown-preview-style?label=VS%20Marketplace&color=0066b8" alt="VS Marketplace"></a>
     <a href="https://open-vsx.org/extension/alkisyuv/markdown-preview-style"><img src="https://img.shields.io/open-vsx/v/alkisyuv/markdown-preview-style?label=Open%20VSX&color=a60ee5" alt="Open VSX"></a>
-    <a href="https://github.com/triartleet/extensions/blob/main/markdown-preview-style/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="MIT license"></a>
+    <a href="https://github.com/fleetorders/extensions/blob/main/markdown-preview-style/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="MIT license"></a>
   </p>
 </div>
 

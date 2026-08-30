@@ -1,7 +1,7 @@
 # extensions
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/triartleet/extensions/main/media/extensions-logo.png" width="520" alt="extensions — a night sky over water; a pair of golden braces stands open, holding room for the family's members">
+  <img src="https://raw.githubusercontent.com/fleetorders/extensions/main/media/extensions-logo.png" width="520" alt="extensions — a night sky over water; a pair of golden braces stands open, holding room for the family's members">
 </div>
 
 Small tools that each do one thing in the editor; this repo is their shared

@@ -1,11 +1,11 @@
 # Claude Code Provider Switcher
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/triartleet/extensions/main/claude-code-provider-switcher/media/claude-code-provider-switcher-logo.png" width="520" alt="Claude Provider Switcher — a bridge from your editor to whichever provider you pick">
+  <img src="https://raw.githubusercontent.com/fleetorders/extensions/main/claude-code-provider-switcher/media/claude-code-provider-switcher-logo.png" width="520" alt="Claude Provider Switcher — a bridge from your editor to whichever provider you pick">
   <p>
     <a href="https://marketplace.visualstudio.com/items?itemName=alkisyuv.claude-code-provider-switcher"><img src="https://img.shields.io/visual-studio-marketplace/v/alkisyuv.claude-code-provider-switcher?label=VS%20Marketplace&color=0066b8" alt="VS Marketplace"></a>
     <a href="https://open-vsx.org/extension/alkisyuv/claude-code-provider-switcher"><img src="https://img.shields.io/open-vsx/v/alkisyuv.claude-code-provider-switcher?label=Open%20VSX&color=a60ee5" alt="Open VSX"></a>
-    <a href="https://github.com/triartleet/extensions/blob/main/claude-code-provider-switcher/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="MIT license"></a>
+    <a href="https://github.com/fleetorders/extensions/blob/main/claude-code-provider-switcher/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="MIT license"></a>
   </p>
 </div>
 
@@ -75,7 +75,7 @@ From a marketplace:
 Or build from source:
 
 ```bash
-git clone https://github.com/triartleet/extensions
+git clone https://github.com/fleetorders/extensions
 cd claude-code-provider-switcher
 pnpm install
 pnpm build
@@ -335,7 +335,7 @@ Palette commands:
 ## Under the hood
 
 Validated live against Claude Code extension 2.1.220 (see
-[DECISIONS.md](https://github.com/triartleet/extensions/blob/main/DECISIONS.md) for the decision record, including the approaches
+[DECISIONS.md](https://github.com/fleetorders/extensions/blob/main/DECISIONS.md) for the decision record, including the approaches
 that were tried and reverted).
 
 - **Process-wrapper shim.** The extension points `claudeCode.claudeProcessWrapper`
@@ -461,8 +461,8 @@ each fix is provable and regressions are caught before a human notices.
 
 ## Roadmap
 
-What's next lives in [ROADMAP.md](https://github.com/triartleet/extensions/blob/main/ROADMAP.md); the decision
-record, including the approaches ruled out, is [DECISIONS.md](https://github.com/triartleet/extensions/blob/main/DECISIONS.md).
+What's next lives in [ROADMAP.md](https://github.com/fleetorders/extensions/blob/main/ROADMAP.md); the decision
+record, including the approaches ruled out, is [DECISIONS.md](https://github.com/fleetorders/extensions/blob/main/DECISIONS.md).
 
 
 ## Disclaimer

@@ -1,11 +1,11 @@
 # Explorer Follows Terminal
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/triartleet/extensions/main/explorer-follows-terminal/media/explorer-follows-terminal-logo.png" width="520" alt="Explorer Follows Terminal — a night tree; the branch carrying the terminal lantern bears the one golden folder">
+  <img src="https://raw.githubusercontent.com/fleetorders/extensions/main/explorer-follows-terminal/media/explorer-follows-terminal-logo.png" width="520" alt="Explorer Follows Terminal — a night tree; the branch carrying the terminal lantern bears the one golden folder">
   <p>
     <a href="https://marketplace.visualstudio.com/items?itemName=alkisyuv.explorer-follows-terminal"><img src="https://img.shields.io/visual-studio-marketplace/v/alkisyuv.explorer-follows-terminal?label=VS%20Marketplace&color=0066b8" alt="VS Marketplace"></a>
     <a href="https://open-vsx.org/extension/alkisyuv/explorer-follows-terminal"><img src="https://img.shields.io/open-vsx/v/alkisyuv/explorer-follows-terminal?label=Open%20VSX&color=a60ee5" alt="Open VSX"></a>
-    <a href="https://github.com/triartleet/extensions/blob/main/explorer-follows-terminal/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="MIT license"></a>
+    <a href="https://github.com/fleetorders/extensions/blob/main/explorer-follows-terminal/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="MIT license"></a>
   </p>
 </div>
 

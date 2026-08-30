@@ -40,7 +40,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/triartleet/extensions/tree/main/explorer-follows-terminal"
+    "url": "https://github.com/fleetorders/extensions/tree/main/explorer-follows-terminal"
   },
   "icon": "media/icon.png"
 }

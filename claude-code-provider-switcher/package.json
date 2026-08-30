@@ -8,10 +8,10 @@
   "packageManager": "pnpm@11.5.2",
   "repository": {
     "type": "git",
-    "url": "https://github.com/triartleet/extensions/tree/main/claude-code-provider-switcher"
+    "url": "https://github.com/fleetorders/extensions/tree/main/claude-code-provider-switcher"
   },
   "bugs": {
-    "url": "https://github.com/triartleet/extensions/issues"
+    "url": "https://github.com/fleetorders/extensions/issues"
   },
   "keywords": [
     "claude-code",

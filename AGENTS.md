@@ -13,7 +13,7 @@ extensions monorepo).
 
 The publisher's VS Code extensions, one folder per extension at the repo
 root, published to the marketplace as `alkisyuv` (display name "Alkis Yuv").
-The code lives on GitHub under triartleet; everything published from it
+The code lives on GitHub under fleetorders; everything published from it
 carries the alkisyuv identity (npm, marketplace, social) — that pairing is
 the standing pattern (D-001).
 
