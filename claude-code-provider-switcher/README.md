@@ -183,12 +183,29 @@ its `/model` labels from `glm.env` — the full rule is in
 
 ### Vision on GLM/Kimi (opt-in proxy)
 
-Some provider gateways mangle pasted images — z.ai GLM did in mid-2026
-(served a fixed wrong picture instead of yours) until it repaired its
-`analyze_image` tool on 2026-07-31, so GLM vision currently works natively.
-This proxy is the fallback for if that regresses, or for another provider
-that mangles images: to keep text and code on GLM while routing image turns
-to Anthropic, put a pay-as-you-go Anthropic key in
+Some provider gateways mangle pasted images, and the failure is silent: the
+model does not say "I can't see this" — it confidently describes a plausible
+picture it never received. z.ai GLM did this in mid-2026 (served a fixed
+wrong picture instead of yours), repaired it on 2026-07-31, and the same
+class returned on a later model version. So whether native vision is
+grounded on your current provider version is a checked fact, not a standing
+claim — probe it after every provider or model change:
+
+```bash
+scripts/vision-probe.sh glm        # any profile name; --model to pin one
+```
+
+The probe sends one image whose content is known by construction — a color
+grid drawn at run time, so the expected answer cannot leak from any cache —
+and passes only if the reply names that content. `PASS` (exit 0): native
+vision is grounded, this proxy can stay off. `FAIL` (exit 1): image turns
+are ungrounded — arm the proxy below until a later probe passes. A probe
+error (exit 2) is a warning, never a verdict. Last probed: **2026-09-01,
+`glm-5.3` — FAIL** (two runs; each reply named colors the image does not
+contain).
+
+The proxy keeps text and code on the provider while routing image turns to
+Anthropic: put a pay-as-you-go Anthropic key in
 `~/.config/gephyra/anthropic-vision.env`:
 
 ```bash
