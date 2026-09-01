@@ -10,9 +10,10 @@ pnpm-workspace.yaml
 
 # Nothing below is needed at runtime, and some of it describes the development
 # machine rather than the extension. vsce does NOT honour .gitignore, so a file
-# ignored by git still ships unless it is named here — .etymd/cache/ held an
-# absolute home path and shipped in 0.4.0 through 0.6.1 for exactly that reason.
-# Verify with `npx @vscode/vsce ls` before every publish.
+# ignored by git still ships unless it is named here — gitignored caches can
+# carry absolute paths, and a packager once shipped one; the artifact gate
+# exists for exactly that class. Verify with `npx @vscode/vsce ls` before
+# every publish.
 .etymd/**
 .githooks/**
 .github/**
