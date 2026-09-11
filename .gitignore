@@ -4,3 +4,6 @@ node_modules/
 .etymd/cache/
 # Maintainer-only checks: this machine's setup, never a contributor's requirement.
 local/
+
+# Machine-local companion hooks and scratch; never tracked.
+local/
