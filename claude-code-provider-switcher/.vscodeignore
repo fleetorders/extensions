@@ -20,12 +20,13 @@ pnpm-workspace.yaml
 .markdownlint.jsonc
 AGENTS.md
 DECISIONS.md
-# Changesets config, the peirad manifest, and the vision probe drive repo-side
-# dev checks (`changeset`, `doctor`, version-change probing) — installed
-# extensions never read them. artifact-check.sh ships (vscode:prepublish runs it).
+# Changesets config and the vision probe drive repo-side dev checks (`changeset`,
+# version-change probing) — installed extensions never read them. artifact-check.sh
+# ships (vscode:prepublish runs it).
 .changeset/**
-peirad.json
 scripts/vision-probe.sh
+# Maintainer-only checks live in the gitignored local/ directory and never ship.
+local/**
 # The README links the roadmap by absolute GitHub URL (D-013), so the canonical copy is
 # always one click away and a shipped duplicate would only go stale inside installed
 # versions — a roadmap frozen at install time is worse than no roadmap.

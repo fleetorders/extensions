@@ -2,3 +2,5 @@ node_modules/
 *.vsix
 .DS_Store
 .etymd/cache/
+# Maintainer-only checks: this machine's setup, never a contributor's requirement.
+local/
