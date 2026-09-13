@@ -6,10 +6,14 @@ GUARD=$(command -v public-surface-guard || true)
 if [ -x "$GUARD" ]; then
   "$GUARD" --pre-push "$@" || exit 1
 fi
-# Machine-local companion checks, when this machine has any. The companion is never tracked and
-# never named here, so a contributor without one pushes exactly as before.
+# Machine-local companion checks, when this machine has any. The companion's contents never
+# enter this repo — a contributor without one pushes exactly as before. It gets the push
+# arguments like the checker above, but not stdin: the checker reads the ref list git feeds
+# this hook, so a companion that needs the refs must derive them itself.
 if [ -x local/hooks/pre-push ]; then
-  local/hooks/pre-push || exit 1
+  local/hooks/pre-push "$@" || exit 1
+elif [ -e local/hooks/pre-push ]; then
+  echo "pre-push: local/hooks/pre-push exists but is not executable — skipped" >&2
 fi
 
 exit 0
