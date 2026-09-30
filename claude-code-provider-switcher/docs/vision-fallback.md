@@ -13,7 +13,8 @@ and passes only if the reply names what it shows. `PASS` (exit 0): vision works,
 proxy off. `FAIL` (exit 1): turn the proxy on until a later probe passes. Exit 2 is a probe
 error, not a verdict.
 
-The proxy keeps text and code on the provider and sends image turns to Anthropic. Put a
+The proxy keeps requests without an image on the provider. A request that carries an image goes to
+Anthropic whole: the conversation so far, including text, code and tool results, travels with it. Put a
 pay-as-you-go Anthropic key in `~/.config/gephyra/anthropic-vision.env`:
 
 ```bash

@@ -83,7 +83,7 @@
         "gephyra.visionProxy": {
           "type": "boolean",
           "default": false,
-          "description": "Opt-in localhost proxy that keeps a project on GLM/Kimi for text and code but routes image-bearing message turns (and the tool loops they start) to Anthropic pay-as-you-go. Requires ~/.config/gephyra/anthropic-vision.env with ANTHROPIC_API_KEY. The wrapper routes through the proxy only while it is running; otherwise it connects to the provider directly, so Claude Code never breaks. Off: nothing is proxied."
+          "description": "Opt-in localhost proxy that keeps a project on GLM/Kimi for text and code but routes image-bearing message turns (and the tool loops they start) to Anthropic pay-as-you-go. Such a request goes whole, with the conversation so far. Requires ~/.config/gephyra/anthropic-vision.env with ANTHROPIC_API_KEY. The wrapper routes through the proxy only while it is running; otherwise it connects to the provider directly, so Claude Code never breaks. Off: nothing is proxied."
         },
         "gephyra.visionProxyPort": {
           "type": "number",

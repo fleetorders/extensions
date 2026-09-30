@@ -158,8 +158,9 @@ switch. Unknown endpoints work fully but show no usage numbers.
 
 Some providers mishandle pasted images, and the failure is silent: the model describes a
 plausible picture it never received. With **`gephyra.visionProxy`** on and a pay-as-you-go
-Anthropic key in `~/.config/gephyra/anthropic-vision.env`, image turns go to Anthropic
-(billed per use to that key) while text and code stay on the provider. The
+Anthropic key in `~/.config/gephyra/anthropic-vision.env`, a request that carries an image goes to Anthropic
+(billed per use to that key) with its whole body: the conversation so far, including text, code and
+tool results, not only the image. Requests without an image stay on the provider. The
 [vision fallback guide](https://github.com/fleetorders/extensions/blob/main/claude-code-provider-switcher/docs/vision-fallback.md) covers the probe that tells you whether you need it, the setup,
 and how the routing works.
 

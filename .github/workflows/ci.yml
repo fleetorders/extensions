@@ -5,6 +5,9 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
   # Shared checks: install from the lockfile, shellcheck every tracked script, test, lint.
   checks:
