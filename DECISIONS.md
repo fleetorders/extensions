@@ -88,5 +88,4 @@ The family README's header block carries the banner alone — no badge row.
 Each extension's own README carries its registry badges.
 
 **Why:** one badge per member makes the row crowd and truncate as the family
-grows; the index needs to stay legible at any size. (A sanctioned deviation
-from the README standard's rule 1, recorded per its "not a gate" clause.)
+grows; the index needs to stay legible at any size.
