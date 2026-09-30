@@ -1,4 +1,4 @@
-# The stranger's view: does this repo build from nothing? Local hooks verify the owner's clone —
+# The stranger's view: does this repo build from nothing? Local hooks verify the maintainer's clone —
 # configured hooksPath, warm node_modules, a PATH with everything on it. CI is the only check
 # that runs from a bare checkout, which is exactly what any other user gets.
 name: ci
