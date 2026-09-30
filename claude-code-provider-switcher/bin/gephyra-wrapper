@@ -139,7 +139,7 @@ debug "provider=$PROVIDER argv=$*"
 
 if [ "$PROVIDER" != "anthropic" ]; then
   ENV_FILE="${CONFIG_DIR}/${PROVIDER}.env"
-  # Back-compat override from the glm-only era.
+  # GEPHYRA_GLM_ENV overrides the path of the glm profile.
   if [ "$PROVIDER" = "glm" ] && [ -n "${GEPHYRA_GLM_ENV:-}" ]; then
     ENV_FILE="$GEPHYRA_GLM_ENV"
   fi

@@ -1,7 +1,7 @@
 node_modules/
 *.vsix
 .DS_Store
-.etymd/cache/
-# Machine-local, never tracked: maintainer-only checks, companion hooks, scratch —
-# never a contributor's requirement.
+# Local state of the etymd checker, when a maintainer runs it.
+.etymd/
+# Maintainer-only checks and hooks; never a contributor requirement.
 local/

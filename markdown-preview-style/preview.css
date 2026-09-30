@@ -1,5 +1,5 @@
 /* VS Code markdown-preview reading stylesheet.
-   Wired via "markdown.styles" in the user settings.
+   Contributed through "markdown.previewStyles" in package.json.
    Theme-aware: VS Code stamps body.vscode-dark / .vscode-light / .vscode-high-contrast. */
 
 body {
@@ -13,7 +13,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Wide content earns the full width back, inside its own scroll box. */
+/* Wide content earns the full width back, inside its own scroll box. Add
+   class="wide" to any HTML block in a markdown file to opt it in too. */
 table,
 pre,
 .wide {

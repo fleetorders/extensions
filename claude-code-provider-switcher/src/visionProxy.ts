@@ -10,7 +10,7 @@ import { envFileFor, setVisionProxyUrl, stateDir } from "./state";
 // chosen provider (GLM/Kimi/…) for text and code, but routes image-bearing
 // message turns — and the tool-loops they start — to Anthropic pay-as-you-go,
 // where vision actually works. This is a scoped, opt-in EXCEPTION to gephyra's
-// "never proxy traffic" stance (DECISIONS.md records the decision); with it off,
+// "never proxy traffic" rule (docs/decisions.md, D-8); with it off,
 // no traffic is proxied and the wrapper injects the provider env directly as
 // always.
 //
@@ -291,7 +291,7 @@ function notifyVisionFailure(status: number): void {
   );
   void vscode.window
     .showWarningMessage(
-      "Gephyra: " + visionFailureMessage(status),
+      "Claude Code Provider Switcher: " + visionFailureMessage(status),
       "Turn off vision proxy",
     )
     .then((pick) => {
@@ -583,7 +583,7 @@ export function syncVisionProxy(): void {
     if (!warnedMissingEnv) {
       warnedMissingEnv = true;
       void vscode.window.showWarningMessage(
-        "Gephyra: vision proxy is on but ~/.config/gephyra/anthropic-vision.env is missing ANTHROPIC_API_KEY + GEPHYRA_VISION_MODEL. Add a pay-as-you-go Anthropic key there to enable vision on GLM/Kimi; until then the proxy stays off (Claude Code runs direct).",
+        "Claude Code Provider Switcher: vision proxy is on but ~/.config/gephyra/anthropic-vision.env is missing ANTHROPIC_API_KEY. Add a pay-as-you-go Anthropic key there to enable vision on GLM/Kimi; until then the proxy stays off (Claude Code runs direct).",
       );
     }
     return;
