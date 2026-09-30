@@ -17,6 +17,13 @@ The code lives on GitHub under fleetorders; everything published from it
 carries the alkisyuv identity (npm, marketplace, social) — that pairing is
 the standing pattern (D-001).
 
+## One instruction file
+
+This `AGENTS.md` is the repo's only agent-instruction file; no Claude Code
+pointer file belongs beside it. Claude Code 2.1.277 and later read `AGENTS.md`
+directly in a project with no pointer file, so adding one (for example via
+`/init`) would only reintroduce two-file drift. Edit this file instead.
+
 ## Working rules
 
 - **Descriptive names, always** (D-002): a new extension's name says what it
