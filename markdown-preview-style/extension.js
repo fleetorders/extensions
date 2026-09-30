@@ -13,12 +13,7 @@
  * A marketplace update overwrites local-override.css with the empty one;
  * the next activation re-syncs it from the local file.
  */
-let vscode;
-try {
-  vscode = require("vscode");
-} catch {
-  vscode = null; // outside VS Code (tests); only the pure helpers are usable
-}
+const vscode = require("vscode");
 const fs = require("fs");
 const os = require("os");
 const path = require("path");
@@ -91,4 +86,4 @@ function activate(context) {
 
 function deactivate() {}
 
-module.exports = { activate, deactivate, sync, expandHome };
+module.exports = { activate, deactivate };

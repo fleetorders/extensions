@@ -43,8 +43,11 @@ behaves exactly as before. Set the setting to an empty string to disable.
 ## What it styles
 
 See [`preview.css`](preview.css) — a comfortable reading measure, calmer
-heading scale, and code blocks that read as blocks. Edit the CSS and rebuild
-the extension to see changes; the shipped stylesheet is the built artifact.
+heading scale, and code blocks that read as blocks. Tables and code blocks
+use the full width; add `class="wide"` to any HTML block to do the same.
+
+The stylesheet ships as written, with no build step: to try a change, edit
+`preview.css` and package the extension with `npx @vscode/vsce package`.
 
 ## License
 

@@ -117,11 +117,11 @@ function parseResetMs(v: unknown): number | null {
 
 // The Anthropic numbers come from Claude Code's OWN statusline payload
 // (rate_limits, present once a session has made a real turn), teed to a file
-// by the user's statusline script. Chosen over the community OAuth usage
-// endpoint because the Keychain access-token copy can already be expired
-// between CLI renewals, and refreshing it ourselves would touch auth flows —
-// a locked non-goal. Trade-off: only TERMINAL sessions run the statusline
-// script, so the feed's freshness rides on terminal use.
+// by the user's statusline script. This is the default because it needs no
+// credential; the opt-in live path (gephyra.anthropicLiveUsage) reads the
+// Keychain token instead and never refreshes it (docs/decisions.md, D-9).
+// Trade-off: only TERMINAL sessions run the statusline script, so this
+// feed's freshness rides on terminal use.
 function fetchAnthropicUsage(): ProviderUsage {
   // Resolved via stateDir so this reads the SAME directory the provider
   // registry does — a hardcoded path here can split from the legacy-dir
