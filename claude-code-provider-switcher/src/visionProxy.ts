@@ -23,8 +23,13 @@ import { envFileFor, setVisionProxyUrl, stateDir } from "./state";
 
 const VISION_ENV = path.join(stateDir, "anthropic-vision.env");
 const LOG_FILE = path.join(stateDir, "vision-proxy.log");
-const HEALTH_PATH = "/__ccgg_health__";
-const HEALTH_MARKER = "gephyra-vision-proxy/1";
+const HEALTH_PATH = "/__provider_switcher_health__";
+const HEALTH_MARKER = "provider-switcher-vision-proxy/1";
+// The previous health path and marker, still answered and still probed for one release, so a
+// window on the new version and a window on the old one share one proxy during the upgrade.
+// Remove both in the release after next.
+const OLD_HEALTH_PATH = "/__ccgg_health__";
+const OLD_HEALTH_MARKER = "gephyra-vision-proxy/1";
 const ANTHROPIC_MESSAGES_URL = "https://api.anthropic.com/v1/messages";
 const SOFT_BODY_WARN = 64 * 1024 * 1024;
 const GUEST_PROBE_MS = 3000;
@@ -361,12 +366,13 @@ function forwardToAnthropic(
 
 function handle(req: http.IncomingMessage, res: http.ServerResponse): void {
   try {
+    const url = (req.url ?? "").replace(/\/$/, "");
     if (
       req.method === "GET" &&
-      (req.url === HEALTH_PATH || req.url === HEALTH_PATH + "/")
+      (url === HEALTH_PATH || url === OLD_HEALTH_PATH)
     ) {
       res.writeHead(200, { "content-type": "text/plain" });
-      res.end(HEALTH_MARKER);
+      res.end(url === HEALTH_PATH ? HEALTH_MARKER : OLD_HEALTH_MARKER);
       return;
     }
     const parsed = parseProviderPath(req.url ?? "/");
@@ -444,20 +450,31 @@ function handle(req: http.IncomingMessage, res: http.ServerResponse): void {
 
 // --- lifecycle: bind-or-guest, with guest→host promotion ---------------------
 
-function probeOurs(port: number): Promise<boolean> {
+async function probeOurs(port: number): Promise<boolean> {
+  return (
+    (await probeHealth(port, HEALTH_PATH, HEALTH_MARKER)) ||
+    (await probeHealth(port, OLD_HEALTH_PATH, OLD_HEALTH_MARKER))
+  );
+}
+
+function probeHealth(
+  port: number,
+  healthPath: string,
+  marker: string,
+): Promise<boolean> {
   return new Promise((resolve) => {
     const r = http.request(
       {
         hostname: "127.0.0.1",
         port,
-        path: HEALTH_PATH,
+        path: healthPath,
         method: "GET",
         timeout: 1000,
       },
       (res) => {
         let data = "";
         res.on("data", (c) => (data += c.toString()));
-        res.on("end", () => resolve(data === HEALTH_MARKER));
+        res.on("end", () => resolve(data === marker));
       },
     );
     r.on("error", () => resolve(false));
