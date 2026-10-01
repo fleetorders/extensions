@@ -1,5 +1,12 @@
 # Claude Code Provider Switcher
 
+## 0.7.2
+
+### Patch Changes
+
+- 8f29162: Messages and the README use the extension's name instead of its former codename, and the README's setting and command names are correct again.
+- 2323efc: The vision proxy's health check uses the extension's name. The previous path and marker are still answered and probed for one release, so windows on the old and new versions share one proxy during the upgrade.
+
 ## 0.7.1
 
 ### Patch Changes

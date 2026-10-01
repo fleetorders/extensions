@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.2
+
+### Patch Changes
+
+- 8f29162: The README documents the `wide` class and how to try a stylesheet change.
+
 ## 1.1.1
 
 ### Patch Changes
