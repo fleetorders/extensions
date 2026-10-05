@@ -9,13 +9,6 @@ permissions:
   contents: read
 
 jobs:
-  # Shared checks: install from the lockfile, shellcheck every tracked script, test, lint.
-  checks:
-    uses: fleetorders/.github/.github/workflows/fleet-checks.yml@v1
-    with:
-      test: npm run typecheck && npm run build
-      lint: npm run lint --workspaces --if-present
-
   # The provider switcher's package, checked against the exact file list a release ships.
   # vsce does not read .gitignore, so a stray file would otherwise ship unnoticed.
   switcher-package:

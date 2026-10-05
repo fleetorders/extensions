@@ -16,6 +16,13 @@ lives at `github.com/fleetorders/extensions`. The design record is
 [docs/decisions.md](docs/decisions.md); an extension's own decisions are in
 its folder's `docs/decisions.md`.
 
+## One instruction file
+
+This `AGENTS.md` is the repo's only agent-instruction file; no Claude Code
+pointer file belongs beside it. Claude Code 2.1.277 and later read `AGENTS.md`
+directly in a project with no pointer file, so adding one (for example via
+`/init`) would only reintroduce two-file drift. Edit this file instead.
+
 ## Working rules
 
 - **Descriptive names** (docs/decisions.md, D-2): a new extension's name says
