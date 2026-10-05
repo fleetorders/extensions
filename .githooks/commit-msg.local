@@ -1,27 +1,11 @@
 #!/usr/bin/env sh
-# Machine-local checks for this hook live in one place: local/hooks/commit-msg beside the main
-# checkout's root, gitignored and never tracked. The lookup goes through the shared git dir, so
-# every linked worktree runs the same companion; it gets this hook's arguments and stdin, and a
-# contributor without one proceeds exactly as before. A companion's contents never enter this
-# repo, so the calling convention is recorded here: one reviewing commit messages reads the
-# message file handed to it as this hook's first argument. (published-surface stub)
-HOOK=${0##*/}
-HOOK=${HOOK%.local}
-COMMON_DIR=$(git rev-parse --git-common-dir 2>/dev/null) || COMMON_DIR=""
-case $COMMON_DIR in
-  /*) ;;
-  ?*) COMMON_DIR=$PWD/$COMMON_DIR ;;
-  *) COMMON_DIR="" ;;
-esac
-if [ -n "$COMMON_DIR" ]; then
-  COMPANION="${COMMON_DIR%/.git}/local/hooks/$HOOK"
-else
-  COMPANION=""
-fi
-if [ -x "$COMPANION" ]; then
+# Machine-local companion checks, when this machine has any: local/hooks/commit-msg at the main
+# checkout's root, gitignored and never tracked. It runs first, with this hook's arguments and
+# stdin; a contributor without one proceeds exactly as before.
+COMMON_DIR=$(git rev-parse --path-format=absolute --git-common-dir 2>/dev/null) || COMMON_DIR=""
+COMPANION="${COMMON_DIR%/.git}/local/hooks/commit-msg"
+if [ -n "$COMMON_DIR" ] && [ -x "$COMPANION" ]; then
   "$COMPANION" "$@" || exit 1
-elif [ -e "$COMPANION" ]; then
-  echo "$HOOK: local/hooks/$HOOK exists but is not executable — skipped" >&2
 fi
 
 exit 0

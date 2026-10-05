@@ -1,43 +1,17 @@
-.vscode/**
+# What the published extension leaves out. vsce does not read .gitignore, so anything not
+# needed at runtime is named here; `npx @vscode/vsce ls` shows what would ship.
 src/**
-media/claude-code-provider-switcher-logo.png
+docs/**
 node_modules/**
 esbuild.mjs
 tsconfig.json
-pnpm-lock.yaml
-pnpm-workspace.yaml
 .gitignore
-
-# Nothing below is needed at runtime, and some of it describes the development
-# machine rather than the extension. vsce does NOT honour .gitignore, so a file
-# ignored by git still ships unless it is named here — gitignored caches can
-# carry absolute paths, and a packager once shipped one; the artifact gate
-# exists for exactly that class. Verify with `npx @vscode/vsce ls` before
-# every publish.
-.etymd/**
-.githooks/**
-.github/**
-.markdownlint.jsonc
-AGENTS.md
-DECISIONS.md
-# Changesets config and the vision probe drive repo-side dev checks (`changeset`,
-# version-change probing) — installed extensions never read them. artifact-check.sh
-# ships (vscode:prepublish runs it).
-.changeset/**
-scripts/vision-probe.sh
-# Maintainer-only checks live in the gitignored local/ directory and never ship.
 local/**
-# The README links the roadmap by absolute GitHub URL (D-013), so the canonical copy is
-# always one click away and a shipped duplicate would only go stale inside installed
-# versions — a roadmap frozen at install time is worse than no roadmap.
-ROADMAP.md
 *.vsix
-
-# Belt and braces: `vscode:prepublish` builds without a source map, so this should
-# never match. If a stray map is ever present it must not ship — it is bigger than
-# the bundle it describes and embeds the full TypeScript source.
 **/*.map
-
-# SVG sources for the icon and banner — the rendered PNGs ship, the sources do not.
+# Maintainer checks run before packaging; installed extensions never read them.
+.artifact-check-allow
+scripts/**
+# SVG sources and the README banner; the rendered icon ships.
 media/*.svg
 media/claude-code-provider-switcher-logo.png

@@ -1,16 +1,23 @@
 # Claude Code Provider Switcher
 
+## 0.7.2
+
+### Patch Changes
+
+- 8f29162: Messages and the README use the extension's name instead of its former codename, and the README's setting and command names are correct again.
+- 2323efc: The vision proxy's health check uses the extension's name. The previous path and marker are still answered and probed for one release, so windows on the old and new versions share one proxy during the upgrade.
+
 ## 0.7.1
 
 ### Patch Changes
 
-- 0cdd127: Family standardization pass: marketplace icons for all three in the family's night-and-gold language (the original bridge icon restored for the provider switcher; night-tree and pendant-lamp scenes with SVG sources for the other two), a consistent README skeleton (one-liner, Install for both marketplaces, license), repository links now point at each extension's child folder (the rename had left the old folder path, breaking listing links and README badge URLs — D-005), root repo metadata (repository, license, author), and the previously-published/formerly references dropped from the READMEs (root and switcher) with the banner renamed to the standard filename.
+- New marketplace icon and README layout; the Repository link on the listing now opens this extension's folder.
 
 ## 0.7.0
 
 ### Minor Changes
 
-- 0ee76f6: Renamed from gephyra to Claude Provider Switcher: the extension ID changes
+- 0ee76f6: Renamed from gephyra to Claude Code Provider Switcher: the extension ID changes
   from `alkisyuv.gephyra` to `alkisyuv.claude-code-provider-switcher` (the old
   listing is deprecated with a pointer here), the repository moves into the
   extensions monorepo, and the README leads with the new name. No behavior
@@ -46,7 +53,7 @@
 
 ### Minor Changes
 
-- Provider profiles: any OpenAI-compatible endpoint via a named `<name>.env`
+- Provider profiles: any Anthropic-compatible endpoint via a named `<name>.env`
   profile, with a Kimi adapter included.
 - Live provider switching for open conversations; the post-switch toast can be
   turned off in settings.

@@ -79,7 +79,7 @@ function onUsageRefreshed(): void {
 // credential in the Keychain where gephyra reads it. No OAuth code in gephyra,
 // no Keychain writes from gephyra.
 async function loginAnthropic(): Promise<void> {
-  const term = vscode.window.createTerminal("Gephyra: Claude login");
+  const term = vscode.window.createTerminal("Claude Code Provider Switcher: Claude login");
   loginTerms.add(term);
   term.show();
   term.sendText("claude login", true);
@@ -188,7 +188,7 @@ function render(
     : header.join(" · ");
   statusItem.tooltip = new vscode.MarkdownString(
     [
-      `**Gephyra** — next Claude Code session runs on **${label}**`,
+      `**Claude Code Provider Switcher** — next Claude Code session runs on **${label}**`,
       ...(tabProvider && tabProvider !== provider
         ? [
             "",
@@ -238,8 +238,7 @@ function refresh(): void {
   render(ws, providerFor(ws), classify(ws, quietWindowMs()));
 }
 
-// Exactly two providers → flip straight to the other one (the one-click flow
-// from the binary era). Three or more → QuickPick with each provider's 5h %.
+// Exactly two providers → flip straight to the other one. Three or more → QuickPick with each provider's 5h %.
 async function pickProvider(
   current: Provider,
   providers: Provider[],
@@ -323,17 +322,6 @@ function drainPendingKills(ws: string): void {
   }
 }
 
-// The model picker mirrors the conversation process's env, so the ACTIVE
-// panel only shows a switched provider after its process respawns — and
-// killing it in place paints the exit-143 banner. Instead: close the panel
-// (its CLI exits cleanly, no banner) and reopen the same session by id —
-// `claude-vscode.primaryEditor.open` accepts a sessionId (verified in
-// 2.1.220's URI handler; supersedes the decision-3-era "no resume-by-id
-// command"), and a reopened panel spawns fresh through the wrapper under
-// the new provider. Only when unambiguous: the focused tab IS a Claude
-// panel AND this project has exactly ONE registered live conversation —
-// the registry cannot say which session a given panel hosts, so with
-// several a reopen could hijack the tab with the wrong one.
 // Respawn every BOUND panel onto the just-switched provider: close (clean
 // exit — no banner) and reopen by session id, each in its original column
 // via claude-vscode.editor.open(sessionId, prompt, viewColumn). A session
@@ -370,7 +358,7 @@ async function respawnBoundPanels(ws: string): Promise<void> {
   // row rebuilds ONCE instead of once per tab. A tab is only closed when
   // its bound session is idle AND resumable (has transcript content):
   // reopening a mis-bound id would replace a real conversation with a
-  // blank Untitled panel — the lost-tab mode seen live.
+  // blank Untitled panel.
   const closed: {
     sessionId: string;
     column: vscode.ViewColumn;
@@ -381,7 +369,7 @@ async function respawnBoundPanels(ws: string): Promise<void> {
     if (sessionActivityFor(ws, sessionId, quietWindowMs()) === "busy") continue;
     if (!resumableSession(ws, sessionId)) continue;
     // Re-resolve the tab at use time — earlier closes churn tab groups and
-    // a stale snapshot makes close() throw, which used to vanish the tab.
+    // a stale snapshot makes close() throw.
     const tab =
       boundClaudeTabs().find((e) => e.sessionId === sessionId)?.tab ?? job.tab;
     try {
@@ -401,15 +389,15 @@ async function respawnBoundPanels(ws: string): Promise<void> {
   closed.sort((a, b) => a.column - b.column || a.index - b.index);
   // NOTE on ordering: VS Code inserts new tabs right of the ACTIVE tab, so
   // reopen order cannot control final positions, and post-hoc
-  // moveActiveEditor placement (tried in 0.3.10) raced focus and moved the
-  // WRONG editors — tabs got lost again. Mixed order is the accepted cost;
+  // moveActiveEditor placement races focus and moves the WRONG editors
+  // (see docs/decisions.md, "Failed approaches"). Mixed order is the accepted cost;
   // never trade tab integrity for cosmetics.
   for (const { sessionId, column } of closed) {
     if (!(await openSessionPanel(sessionId, column))) {
       await sleep(500);
       if (!(await openSessionPanel(sessionId, column)))
         void vscode.window.showWarningMessage(
-          `Gephyra: could not reopen conversation ${sessionId.slice(0, 8)}… — resume it from the session list.`,
+          `Claude Code Provider Switcher: could not reopen conversation ${sessionId.slice(0, 8)}… — resume it from the session list.`,
         );
     }
   }
@@ -451,8 +439,7 @@ async function openSessionPanel(
 ): Promise<boolean> {
   // An open can "succeed" as a silent no-op: the extension's session→panel
   // map can outlive the dead process by a beat, and createPanel then just
-  // REVEALS the dying panel without throwing (the rare lost-tab mode that
-  // survives every other guard). Only a panel that verifiably materialized
+  // REVEALS the dying panel without throwing. Only a panel that verifiably materialized
   // counts — anything else reports failure so the caller's delayed retry
   // runs after the disposal has certainly been processed.
   const before = claudePanelCount();
@@ -477,14 +464,14 @@ async function toggle(): Promise<void> {
   const ws = workspacePath();
   if (!ws) {
     void vscode.window.showWarningMessage(
-      "Gephyra: open a workspace folder first.",
+      "Claude Code Provider Switcher: open a workspace folder first.",
     );
     return;
   }
   const providers = listProviders();
   if (providers.length < 2) {
     void vscode.window.showWarningMessage(
-      "Gephyra: no provider profiles found — create ~/.config/gephyra/<name>.env (e.g. glm.env) first.",
+      "Claude Code Provider Switcher: no provider profiles found — create ~/.config/gephyra/<name>.env (e.g. glm.env) first.",
     );
     return;
   }
@@ -552,14 +539,14 @@ async function setupWrapper(context: vscode.ExtensionContext): Promise<void> {
   if (current === stableWrapperPath) {
     installWrapperCopy(context);
     void vscode.window.showInformationMessage(
-      "Gephyra: wrapper already configured (copy refreshed).",
+      "Claude Code Provider Switcher: wrapper already configured (copy refreshed).",
     );
     return;
   }
   const answer = await vscode.window.showInformationMessage(
     current
-      ? `claudeCode.claudeProcessWrapper is already set to "${current}". Replace it with the gephyra shim?`
-      : "Point claudeCode.claudeProcessWrapper at the gephyra shim so provider switching can work?",
+      ? `claudeCode.claudeProcessWrapper is already set to "${current}". Replace it with the provider switcher's wrapper?`
+      : "Point claudeCode.claudeProcessWrapper at the provider switcher's wrapper so provider switching can work?",
     { modal: true },
     "Configure",
   );
@@ -571,7 +558,7 @@ async function setupWrapper(context: vscode.ExtensionContext): Promise<void> {
     vscode.ConfigurationTarget.Global,
   );
   void vscode.window.showInformationMessage(
-    "Gephyra: wrapper configured. New Claude Code sessions will honor the toggle.",
+    "Claude Code Provider Switcher: wrapper configured. New Claude Code sessions will honor the toggle.",
   );
 }
 
@@ -594,7 +581,7 @@ export function activate(context: vscode.ExtensionContext): void {
       const ws = workspacePath();
       if (!ws) {
         void vscode.window.showWarningMessage(
-          "Gephyra: open a workspace folder first.",
+          "Claude Code Provider Switcher: open a workspace folder first.",
         );
         return;
       }
@@ -638,7 +625,7 @@ export function activate(context: vscode.ExtensionContext): void {
       installWrapperCopy(context);
     } catch (e) {
       void vscode.window.showErrorMessage(
-        `Gephyra: cannot refresh wrapper copy: ${e}`,
+        `Claude Code Provider Switcher: cannot refresh wrapper copy: ${e}`,
       );
     }
   } else if (!current || current.includes("gephyra-wrapper")) {
@@ -647,8 +634,8 @@ export function activate(context: vscode.ExtensionContext): void {
     void vscode.window
       .showInformationMessage(
         current
-          ? "Gephyra: the configured wrapper path is stale — reconfigure to the stable location."
-          : "Gephyra is inert until the Claude Code process wrapper is configured.",
+          ? "Claude Code Provider Switcher: the configured wrapper path is stale — reconfigure to the stable location."
+          : "Claude Code Provider Switcher is inert until the Claude Code process wrapper is configured.",
         "Configure now",
       )
       .then((pick) => {

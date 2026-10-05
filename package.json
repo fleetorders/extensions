@@ -1,15 +1,19 @@
 {
   "name": "extensions",
   "private": true,
+  "description": "Alkis Yuv's editor extensions — one monorepo, one naming standard",
   "workspaces": [
     "claude-code-provider-switcher",
     "explorer-follows-terminal",
     "markdown-preview-style"
   ],
+  "scripts": {
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "build": "npm run build:production --workspaces --if-present"
+  },
   "dependencies": {
     "@changesets/cli": "^3.0.0"
   },
-  "description": "Alkis Yuv's editor extensions — one monorepo, one naming standard",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fleetorders/extensions.git"

@@ -1,6 +1,5 @@
 import * as vscode from "vscode";
 import * as fs from "node:fs";
-import * as os from "node:os";
 import * as path from "node:path";
 import { classify, resolveActiveSession } from "./busy";
 import {
@@ -42,7 +41,7 @@ export async function beam(ws: string, quietWindowMs: number): Promise<void> {
   const active = resolveActiveSession(ws);
   if (!active) {
     void vscode.window.showWarningMessage(
-      "Gephyra: no Claude Code session found for this workspace yet — nothing to beam.",
+      "Claude Code Provider Switcher: no Claude Code session found for this workspace yet — nothing to beam.",
     );
     return;
   }
@@ -61,7 +60,7 @@ export async function beam(ws: string, quietWindowMs: number): Promise<void> {
     env = profileEnv(provider) ?? undefined;
     if (!env) {
       void vscode.window.showWarningMessage(
-        `Gephyra: this project is on ${displayName(provider)} but ${provider}.env is missing — a beam now would run on Anthropic. Fix ${provider}.env first.`,
+        `Claude Code Provider Switcher: this project is on ${displayName(provider)} but ${provider}.env is missing — a beam now would run on Anthropic. Fix ${provider}.env first.`,
       );
       return;
     }

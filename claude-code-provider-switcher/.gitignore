@@ -5,5 +5,3 @@ dist/
 # never commit provider credentials or local state
 *.env
 state.json
-*.vsix
-.etymd/cache/

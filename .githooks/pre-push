@@ -14,12 +14,20 @@ refs=$(cat)
 if [ -x "$LOCAL" ]; then
   printf '%s\n' "$refs" | "$LOCAL" "$@" || exit 1
 fi
-echo "› no package scripts — shell is this repo's checkable surface"
+# Gate steps run scrubbed of git's exported GIT_* names: a child git that inherits them ignores
+# its cwd, so a hook-run suite building fixture repositories would operate on the real repo.
+run_gate() (
+  # shellcheck disable=SC2046  # word-splitting is the point: one -u per exported GIT_* name
+  env $(env | grep -o '^GIT_[A-Za-z0-9_]*' | sed 's/^/-u /') "$@"
+)
+
+echo "› npm run typecheck"
+run_gate npm run typecheck || exit 1
 # Shell correctness. Scripts are discovered by shebang over TRACKED files at push time, so a
 # script added later is covered without regenerating this hook. The commits BEING PUSHED are
 # the bytes that ship, so each script is read as its raw blob from git's object store —
 # never the working tree (wrong in both directions: a fixed tree let an unfixed commit ship, and
-# a dirty tree shared by several sessions blocked an unrelated push) and never the tip alone (a
+# uncommitted edits in the tree blocked an unrelated push) and never the tip alone (a
 # bad commit under a clean tip shipped while the gate read only the tip's fix). The classifier
 # is discover-shell-scripts.sh beside this hook — tracked and shebanged like what it classifies,
 # so the scan it implements finds and checks it too. zsh is NOT in the checked set:
@@ -258,4 +266,4 @@ if [ -x "$GATE" ]; then
 fi
 
 exit 0
-# etymd:generated pack-v18 dfa54cc061ff042d
+# etymd:generated pack-v18 a3dc9a0aa22c7992

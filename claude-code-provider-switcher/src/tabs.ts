@@ -38,9 +38,9 @@ export function initTabTracker(context: vscode.ExtensionContext): void {
       if (isClaudePanel(tab) && tab.isActive) lastActive = tab;
   context.subscriptions.push(
     // NOTE: cross-group tab MOVES orphan their binding (the move recreates
-    // the Tab object with no new spawn to re-pair against). A pairwise
-    // close+open transfer was tried (0.3.9) and REVERTED — it mis-bound
-    // tabs and made respawn bounce panels between groups. Moved tabs are
+    // the Tab object with no new spawn to re-pair against). Pairing the
+    // close with the open mis-binds tabs and makes respawn bounce panels
+    // between groups (see docs/decisions.md, "Failed approaches"). Moved tabs are
     // simply unbound: they keep their provider until closed and resumed.
     vscode.window.tabGroups.onDidChangeTabs((e) => {
       for (const tab of e.opened) if (isClaudePanel(tab)) enqueue(tab);
@@ -115,11 +115,6 @@ export function boundClaudeTabs(): { tab: vscode.Tab; sessionId: string }[] {
     tab,
     sessionId,
   }));
-}
-
-// The session behind the focused Claude panel (or the last one focused).
-export function sessionIdForTab(tab: vscode.Tab): string | undefined {
-  return bindings.get(tab);
 }
 
 export function activeBoundSessionId(): string | undefined {

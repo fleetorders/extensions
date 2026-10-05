@@ -1,5 +1,5 @@
 /* VS Code markdown-preview reading stylesheet.
-   Wired via "markdown.styles" in the user settings.
+   Contributed through "markdown.previewStyles" in package.json.
    Theme-aware: VS Code stamps body.vscode-dark / .vscode-light / .vscode-high-contrast. */
 
 body {
@@ -13,7 +13,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Wide content earns the full width back, inside its own scroll box. */
+/* Wide content earns the full width back, inside its own scroll box. Add
+   class="wide" to any HTML block in a markdown file to opt it in too. */
 table,
 pre,
 .wide {
@@ -45,8 +46,8 @@ h2 {
 h3 { font-size: 1.15em; }
 h4 { font-size: 1.02em; opacity: 0.95; }
 
-/* A bold line alone on its own paragraph is a pseudo-heading in generated
-   docs — give it heading air so question blocks separate visually. */
+/* A bold line alone on its own paragraph is a pseudo-heading in many
+   docs — give it heading air so such blocks separate visually. */
 p > strong:only-child {
   display: inline-block;
   margin-top: 0.6em;
@@ -88,7 +89,7 @@ hr {
   margin: 2.5em 0;
 }
 
-/* ---- Tables: the rival matrices are wide; let them scroll, not squeeze ---- */
+/* ---- Tables: comparison tables run wide; let them scroll, not squeeze ---- */
 
 table {
   display: block;
@@ -127,7 +128,7 @@ code {
 }
 
 /* Inline code is a REFERENCE (a path, a filename, a key) — not a program.
-   Something in the toolchain tokenizes it and paints `research/interrogation/`
+   Something in the toolchain tokenizes it and paints a path like `docs/notes/`
    in three colours, which reads as syntax where there is no syntax. Force one
    flat colour, including any spans a highlighter injected inside. Fenced
    blocks below are untouched and keep full highlighting. */
