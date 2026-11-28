@@ -432,6 +432,15 @@ if command -v etymd >/dev/null 2>&1; then
       xargs -0 sh -c 'wt=$1; tab=$2; shift 2; for record do
           meta=${record%%"$tab"*}
           file=${record#*"$tab"}
+          # A record path must stay inside the worktree: the git writers themselves refuse
+          # a tree entry whose name carries .., but a hand-forged or corrupted object
+          # reaches ls-tree verbatim, and an escaping name writes outside the tree this
+          # gate just built — refuse it like an unreadable entry.
+          case $file in
+            (""|/*|.|..|./*|../*|*/..|*/../*|*/.|*/./*)
+              echo "etymd audit: tracked path does not stay inside the audited tree: $file" >&2
+              exit 1 ;;
+          esac
           case ${meta%% *} in (160000) continue ;; esac
           case $file in (*/*) dir=${file%/*} ;; (*) dir=. ;; esac
           # No ancestor of the file may be a symlink: a tree tracking both dir as a
