@@ -384,7 +384,10 @@ fi
 # working-tree conversion — a required filter kills it mid-stream, a non-required one hands
 # the audit CONVERTED bytes — while its death inside a pipeline read as tar's status and the
 # audit ran over an empty tree. Symlinks are re-linked, the exec bit is kept, submodule
-# entries have no bytes of their own. --no-checkout leaves the worktree's index EMPTY, so the
+# entries have no bytes of their own; a path whose ancestor is a tracked symlink, or that
+# collides with an already materialised name (a case twin on a case-insensitive filesystem),
+# refuses the push instead of writing outside the worktree or reading one blob as two names.
+# --no-checkout leaves the worktree's index EMPTY, so the
 # audit's git-scoped enumeration (ls-files) would list nothing while every file sits on disk —
 # read-tree fills the index from the same commit directly: no checkout runs, no filter, the
 # raw-blob rule holds. Installed binaries belong to the checkout, not the commit: the checkout's
@@ -393,8 +396,11 @@ fi
 # to an installed binary into "unverifiable, skipped", and dead commands are exactly what this
 # gate exists to catch. hooksPath is neutralised for the materialisation
 # itself so no hook of the pushed tree runs as a side effect of this read; the audit inside
-# sees the repo's own config. It runs scrubbed (run_gate): a child git inheriting git's
-# exported names would ignore the worktree it stands in. A push that carries no commits
+# sees the repo's own config. Both run scrubbed (run_gate): a child git inheriting git's
+# exported names would ignore the worktree it stands in — and the materialisation's own
+# read-tree, run through a caller's GIT_INDEX_FILE, wrote THAT index instead (a dry-run
+# push cleared a contributor's staged change) while the audit worktree kept an empty one,
+# so the audit enumerated nothing and certified it. A push that carries no commits
 # (deletes only) audits nothing, and says so.
 if command -v etymd >/dev/null 2>&1; then
   (
@@ -416,9 +422,9 @@ if command -v etymd >/dev/null 2>&1; then
     tab=$(printf '\t')
     for tip in $tips; do
       wt=$(mktemp -d "$audit_tmp/tip.XXXXXX") || exit 1
-      if ! git -c core.hooksPath=/dev/null worktree add --detach --no-checkout -q "$wt" "$tip" 2>/dev/null \
-        || ! git -C "$wt" -c core.hooksPath=/dev/null read-tree "$tip" \
-        || ! git ls-tree -r -z "$tip" > "$audit_tmp/audit-entries"; then
+      if ! run_gate git -c core.hooksPath=/dev/null worktree add --detach --no-checkout -q "$wt" "$tip" 2>/dev/null \
+        || ! run_gate git -C "$wt" -c core.hooksPath=/dev/null read-tree "$tip" \
+        || ! run_gate git ls-tree -r -z "$tip" > "$audit_tmp/audit-entries"; then
         echo "✗ etymd audit: could not materialise $(git rev-parse --short "$tip" 2>/dev/null || echo "$tip") for the audit — refusing the push rather than certifying bytes this gate did not read" >&2
         exit 1
       fi
@@ -428,7 +434,30 @@ if command -v etymd >/dev/null 2>&1; then
           file=${record#*"$tab"}
           case ${meta%% *} in (160000) continue ;; esac
           case $file in (*/*) dir=${file%/*} ;; (*) dir=. ;; esac
+          # No ancestor of the file may be a symlink: a tree tracking both dir as a
+          # link and dir/file would otherwise write through the link, outside this
+          # worktree — mkdir -p descends a symlinked component without a word.
+          d=$wt; rest=$dir
+          while [ "$rest" != "." ] && [ -n "$rest" ]; do
+            c=${rest%%/*}
+            case $rest in (*/*) rest=${rest#*/} ;; (*) rest= ;; esac
+            [ -n "$c" ] || continue
+            d=$d/$c
+            if [ -L "$d" ]; then
+              echo "etymd audit: $file sits under $c, itself tracked as a symlink — its raw blob would land through the link, outside the audit worktree" >&2
+              exit 1
+            fi
+          done
           mkdir -p -- "$wt/$dir" || exit 1
+          # Nothing may already sit at the path: tracked names are unique, so an
+          # existing entry is a collision — on a case-insensitive filesystem two
+          # names differing only in case share one file, and the audit would read
+          # one blob as both. -L beside -e: a dangling symlink is a collision too,
+          # and -e alone cannot see one.
+          if [ -e "$wt/$file" ] || [ -L "$wt/$file" ]; then
+            echo "etymd audit: $file collides with an already materialised path (a case twin or a duplicate entry) — the audit would read one blob under two names" >&2
+            exit 1
+          fi
           case ${meta%% *} in
             (120000) ln -s -- "$(git cat-file blob "${meta##* }")" "$wt/$file" || exit 1 ;;
             (*)
@@ -442,14 +471,21 @@ if command -v etymd >/dev/null 2>&1; then
       fi
       # The checkout's installed binaries, linked in for the audit run (see the block comment):
       # any failure here only restores the skip-with-disclosure behaviour, never blocks a push.
-      checkout_root=$(git rev-parse --show-toplevel 2>/dev/null) \
-        && [ -d "$checkout_root/node_modules" ] \
-        && ln -s "$checkout_root/node_modules" "$wt/node_modules" || :
+      # And only when the destination is absent — including as a dangling symlink, which
+      # [ -e ] alone cannot see: a tip that already tracked node_modules made ln place
+      # node_modules/node_modules INSIDE it (ln descends an existing directory), and a
+      # tracked node_modules symlink redirected the link into its target, outside this
+      # worktree. What the commit tracks at that path stays the commit's.
+      checkout_root=$(git rev-parse --show-toplevel 2>/dev/null) || checkout_root=
+      if [ -n "$checkout_root" ] && [ -d "$checkout_root/node_modules" ] \
+        && [ ! -e "$wt/node_modules" ] && [ ! -L "$wt/node_modules" ]; then
+        ln -s "$checkout_root/node_modules" "$wt/node_modules" || :
+      fi
       echo "› etymd audit --no-ledger --fail-on risk (at $(git rev-parse --short "$tip" 2>/dev/null || echo "$tip"), the pushed tip)"
       if ! (cd "$wt" && run_gate etymd audit --no-ledger --fail-on risk); then
         exit 1
       fi
-      git -c core.hooksPath=/dev/null worktree remove --force "$wt" >/dev/null 2>&1 || exit 1
+      run_gate git -c core.hooksPath=/dev/null worktree remove --force "$wt" >/dev/null 2>&1 || exit 1
     done
   ) || exit 1
 else
